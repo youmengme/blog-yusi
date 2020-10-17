@@ -1,0 +1,86 @@
+body {
+  overflow-x: hidden;
+  font-family: SpecialSymbol, DINRegular, -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Hiragino Sans GB", "Segoe UI", "Microsoft YaHei", '微软雅黑', sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+  font-family: 'cyjianxk';
+  src: url(../fonts/cyjianxk/cyjianxk.eot);
+  src: url(../fonts/cyjianxk/cyjianxk.eot#iefix) format('embedded-opentype'),
+  url(../fonts/cyjianxk/cyjianxk.woff2) format('woff2'),
+  url(../fonts/cyjianxk/cyjianxk.woff) format('woff'),
+  url(../fonts/cyjianxk/cyjianxk.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RS_XingKai';
+  src: url(../fonts/xinkai/RS_XingKai.eot);
+  src: url(../fonts/xinkai/RS_XingKai.eot#iefix) format('embedded-opentype'),
+  url(../fonts/xinkai/RS_XingKai.woff2) format('woff2'),
+  url(../fonts/xinkai/RS_XingKai.woff) format('woff'),
+  url(../fonts/xinkai/RS_XingKai.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@-webkit-keyframes slideInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInUp {
+  animation-name: slideInUp;
+}
+
+body.dialog-open {
+  position: fixed;
+  width: 100%;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity .2s;
+}
+
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
+
+.box-fixed {
+  position: relative;
+  top: 0;
+}
+
+.tab_fix_bottom {
+  position: absolute;
+  bottom: 0;
+  top: auto;
+}
+
+.tab_fix {
+  position: fixed;
+  top: 10px;
+  right: 0;
+}

@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'RS_XingKai';
+    src: url('RS_XingKai.eot');
+    src: url('RS_XingKai.eot#iefix') format('embedded-opentype'),
+    url('RS_XingKai.woff2') format('woff2'),
+    url('RS_XingKai.woff') format('woff'),
+    url('RS_XingKai.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.css{
+    font-family: 'RS_XingKai';
+}
