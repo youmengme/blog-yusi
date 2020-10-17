@@ -30,7 +30,8 @@
       </div>
     </div>
     <div
-      class="article-detail-container md-dark"
+      id="article-detail-container"
+      class="md-dark"
       v-html="articleInfo.content"
     />
     <div class="article-extends">

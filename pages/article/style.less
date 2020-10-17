@@ -1,4 +1,4 @@
-.article-detail-container {
+#article-detail-container {
   width: 856px;
   font-size: 15px;
   line-height: 26px;
@@ -121,7 +121,33 @@
   }
 
   pre {
-    padding-top: 20px;
+    position: relative;
+    padding-top: 50px !important;
+    background: #161718 !important;
+
+    &:before {
+      content: " ";
+      position: absolute;
+      border-radius: 50%;
+      background: #fc625d;
+      width: 12px;
+      height: 12px;
+      left: 12px;
+      top: 14px;
+      box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+      z-index: 2;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      width: auto;
+      height: 40px;
+      background: #21252b;
+    }
   }
 
   blockquote {
