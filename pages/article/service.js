@@ -1,8 +1,8 @@
 import { getArticleDetail as getArticleDetailAPI, getArticleList } from '~/api'
 import { markdown2html } from '~/plugins/markdown2html'
 
-export const getArticleDetail = async () => {
-  const { code, data } = await getArticleDetailAPI(1)
+export const getArticleDetail = async articleId => {
+  const { code, data } = await getArticleDetailAPI(articleId)
   if (code || !data) return {}
   const { content, toc } = markdown2html(data.content)
   return {

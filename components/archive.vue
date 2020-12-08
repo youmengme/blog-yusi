@@ -49,7 +49,8 @@ export default {
 
   h1 {
     font-size: 22px;
-    font-weight: 400;
+    font-weight: bolder;
+
     .iconfont {
       font-size: 22px;
       margin-right: 5px;

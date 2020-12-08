@@ -5,7 +5,9 @@
       <div class="reply-info" :data-floor="info.id">
         <div class="reply-ext">
           <div class="reply-nick-name">{{ info.nickName }}</div>
-          <div class="reply-date">{{ info.publishedAt }}</div>
+          <div class="reply-date">
+            {{ info.publishedAt | formatDateToRelativeDate }}
+          </div>
           <div class="reply-btn"><i class="iconfont icon-reply" /> 回复</div>
         </div>
         <div class="reply-content">{{ info.content }}</div>

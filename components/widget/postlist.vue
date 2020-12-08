@@ -13,9 +13,9 @@
         <div class="article-info">
           <span class="article-title"> {{ item.title }} </span>
           <p class="article-date">
-            {{ item.publishedAt }}
+            {{ item.publishedAt | formatDateToRelativeDate }}
             <span class="like">
-              <i class="iconfont icon-like" />
+              <i class="fa fa-heart-o" />
               <span class="count">{{ item.likes }}</span> 喜欢
             </span>
           </p>

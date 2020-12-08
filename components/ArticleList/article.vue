@@ -30,7 +30,7 @@
       >
         <div class="article-desc">{{ article.desc }}</div>
         <div class="article-other">
-          <div class="article-tags">
+          <div class="article-tags" v-if="false">
             <span class="iconfont icon-tag" v-if="article.tags.length" />
             <nuxt-link
               class="tag"
@@ -41,17 +41,19 @@
               {{ ele.name }}
             </nuxt-link>
           </div>
+          <div />
           <div class="article-article hidden-md-and-down">
             <span class="date">
-              <i class="iconfont icon-clock" /> {{ article.publishedAt }}
+              <i class="fa fa-clock-o" />
+              {{ article.publishedAt | formatDateToRelativeDate }}
             </span>
             <span class="views">
-              <i class="iconfont icon-eye" /> {{ article.views || 0 }}
+              <i class="fa fa-eye" /> {{ article.views || 0 }}
             </span>
             <span class="like">
               <i
-                class="iconfont"
-                :class="article.liked ? 'icon-like-full' : 'icon-like'"
+                class="fa"
+                :class="article.liked ? 'fa-heart' : 'fa-heart-o'"
               />
               <span class="count"> {{ article.likes || 0 }} </span> 喜欢
             </span>
@@ -82,7 +84,9 @@ export default {
   background: var(--white);
   margin-bottom: 10px;
   padding: 20px 15px;
-
+  &:last-child {
+    margin-bottom: 0;
+  }
   &:hover {
     .cover {
       transform: scale(1.2);
@@ -142,6 +146,7 @@ export default {
     }
 
     .article-detail {
+      flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -151,10 +156,6 @@ export default {
 
       .article-desc {
         .global-lines(4);
-
-        &:hover {
-          color: #999;
-        }
       }
 
       .article-other {
@@ -172,6 +173,7 @@ export default {
           }
           .tag {
             color: #999;
+            font-weight: 500;
           }
         }
 
@@ -189,6 +191,9 @@ export default {
             margin-right: 20px;
             color: #999;
             line-height: 1;
+            &:last-child {
+              margin-right: 0;
+            }
 
             &.like {
               color: #f78585;

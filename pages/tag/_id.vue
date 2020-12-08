@@ -1,12 +1,12 @@
 <template>
   <div class="page-tag">
-    <Archive type="tag" type-name="标签" name="Vue" />
+    <Archive type="tag" type-name="标签" :name="tagInfo.name" v-if="tagInfo" />
     <ArticleList :list="list" :total="count" />
   </div>
 </template>
 
 <script>
-import { getArticleList } from '@/api'
+import { getArticleList, getTagDetail } from '@/api'
 import ArticleList from '../../components/ArticleList'
 import Archive from '../../components/archive'
 
@@ -16,18 +16,32 @@ export default {
     ArticleList,
     Archive
   },
-  async asyncData() {
-    const { code, data } = await getArticleList({})
-    if (code || !data) return
-    const { list = [], count = 0 } = data
-    return {
-      list,
-      count
+  async asyncData({ params }) {
+    const [articleResult, categoryDetail] = await Promise.all([
+      getArticleList({
+        categoryId: params.id,
+        count: true
+      }),
+      getTagDetail(params.id)
+    ])
+    const result = {}
+    if (!categoryDetail.code && categoryDetail.data) {
+      result.tagInfo = categoryDetail.data
     }
+
+    if (!articleResult.code && articleResult.data) {
+      const { rows = [], count = 0 } = articleResult.data
+      result.list = rows
+      result.count = count
+    }
+
+    return result
   },
   data() {
     return {
-      list: []
+      list: [],
+      count: 0,
+      tagInfo: null
     }
   },
   head() {

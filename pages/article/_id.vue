@@ -2,7 +2,7 @@
   <div class="page-article">
     <div class="article-basic">
       <div class="breadcrumb">
-        <nuxt-link to="/" class="iconfont icon-index" />
+        <nuxt-link to="/" class="fa fa-home" />
         <span class="iconfont icon-gt" />
         <nuxt-link :to="$getPageRouter('category', articleInfo.category.id)">
           {{ articleInfo.category.name }}
@@ -16,16 +16,17 @@
           :to="$getPageRouter('category', articleInfo.category.id)"
           class="category"
         >
-          <span class="iconfont icon-article" /> {{ articleInfo.category.name }}
+          <span class="fa fa-list-alt" /> {{ articleInfo.category.name }}
         </nuxt-link>
         <div class="views">
-          <span class="iconfont icon-eye1" /> {{ articleInfo.views }}
+          <span class="fa fa-eye" /> {{ articleInfo.views }}
         </div>
         <div class="date">
-          <span class="iconfont icon-clock" /> {{ articleInfo.publishedAt }}
+          <span class="iconfont icon-clock" />
+          {{ articleInfo.publishedAt | formatDateToRelativeDate }}
         </div>
         <nuxt-link to="#comment" class="comment">
-          <span class="iconfont icon-comments" /> {{ '0条' }}
+          <span class="fa fa-comments-o" /> {{ '0条' }}
         </nuxt-link>
       </div>
     </div>
@@ -36,13 +37,13 @@
     />
     <div class="article-extends">
       <div class="tips">
-        <i class="iconfont icon-bull-horn-announcer" />
+        <i class="fa fa-bullhorn" />
         如果你觉得这篇文章对你有所帮助，请点击下方[喜欢]按钮支持我继续更新网站！
       </div>
       <div class="actions">
-        <div class="like"><i class="iconfont icon-like" /> 喜欢(99+)</div>
+        <div class="like"><i class="fa fa-heart-o" /> 喜欢(99+)</div>
         <span>OR</span>
-        <div class="share"><i class="iconfont icon-share" /> 分享</div>
+        <div class="share"><i class="fa fa-share-alt" /> 分享</div>
       </div>
     </div>
 
@@ -65,12 +66,12 @@ export default {
     Relates,
     Comments
   },
-  async asyncData() {
+  async asyncData({ params }) {
     const relateArticles = await getRelateArticles({
       type: 'view',
       size: 4
     })
-    const articleInfo = await getArticleDetail(1)
+    const articleInfo = await getArticleDetail(params.id)
 
     return {
       articleInfo,

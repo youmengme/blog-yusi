@@ -76,3 +76,22 @@ export const getTagList = params => {
     params
   })
 }
+
+export const getTagDetail = (id, params) => {
+  return request({
+    url: `/tags/${id}`,
+    params
+  })
+}
+
+/**********************************
+ * Category
+ * ************************************/
+
+// 获取分类id详情
+export const getCategoryDetail = (id, params = {}) => {
+  return request({
+    url: `/categories/${id}`,
+    params
+  })
+}

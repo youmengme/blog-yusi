@@ -53,7 +53,7 @@
               @keydown.enter="handleSearchKeyword"
             />
             <div class="toggle-search" @click="handleSearchKeyword">
-              <i class="iconfont icon-search" />
+              <i class="fa fa-search" />
             </div>
           </li>
         </ul>
@@ -103,7 +103,7 @@
               @keydown.enter="handleSearchKeyword"
             />
             <div class="toggle-search" @click="handleSearchKeyword">
-              <i class="iconfont icon-search" />
+              <i class="fa fa-search" />
             </div>
           </li>
         </ul>
@@ -148,7 +148,7 @@ export default {
         },
         {
           name: 'LeetCode',
-          url: '/',
+          url: '/category/1',
           children: [
             {
               name: 'Easy',

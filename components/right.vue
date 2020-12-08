@@ -6,7 +6,7 @@
     style="outline: none"
     @click="backTop"
   >
-    <i class="iconfont icon-top" />
+    <i class="fa fa-arrow-up" />
   </button>
 </template>
 
