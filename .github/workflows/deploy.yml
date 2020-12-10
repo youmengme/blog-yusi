@@ -9,6 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.2
+        with:
+            node-version: 12  
+      - name: Install and Build
+        run: |
+          npm install
+          npm run build
+          
       - name: Copy File To Service
         uses: appleboy/scp-action@master
         env:
@@ -30,6 +39,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /www/wwwroot/www.youmeng.me/client
-            yarn install
-            yarn build
+            yarn
             npm run deploy
