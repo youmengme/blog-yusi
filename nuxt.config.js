@@ -44,7 +44,9 @@ export default {
    ** Global CSS
    */
   css: [
-    'element-ui/lib/theme-chalk/index.css',
+    'element-ui/lib/theme-chalk/base.css',
+    'element-ui/lib/theme-chalk/carousel.css',
+    'element-ui/lib/theme-chalk/carousel-item.css',
     'element-ui/lib/theme-chalk/display.css',
     {
       src: '~assets/css/index.less',
@@ -56,8 +58,8 @@ export default {
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
-    '@/plugins/element-ui',
-    '@/plugins/prototype',
+    '~/plugins/element-ui',
+    '~/plugins/prototype',
     {
       src: '~plugins/lazyload.js',
       ssr: true
@@ -67,7 +69,7 @@ export default {
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
    */
-  components: true,
+  components: false,
   /*
    ** Nuxt.js dev-modules
    */
@@ -93,11 +95,29 @@ export default {
       })
     }
   },
+  /**
+   * babel
+   */
+  babel: {
+    presets: [['es2015', { modules: false }]],
+    plugins: [
+      [
+        'component',
+        {
+          libraryName: 'element-ui',
+          styleLibraryName: 'theme-chalk'
+        }
+      ]
+    ]
+  },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {
+    analyze: true,
+    maxChunkSize: 360000,
+    extractCSS: true,
     transpile: [/^element-ui/],
     styleResources: {
       less: './assets/css/mixins.less'

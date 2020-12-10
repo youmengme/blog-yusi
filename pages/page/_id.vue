@@ -27,7 +27,6 @@ export default {
     }
   },
   async asyncData({ params }) {
-    console.log('params', params)
     const page = parseInt(params.id) - 1
     const { code, data } = await getArticleList({
       type: 'new',
@@ -51,7 +50,6 @@ export default {
   },
   methods: {
     changePageIndex(index) {
-      console.log('index', index)
       this.$router.push({
         name: 'page-id',
         params: {

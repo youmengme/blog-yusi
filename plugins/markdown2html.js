@@ -71,12 +71,13 @@ marked.setOptions({
   breaks: false,
   pedantic: false,
   smartLists: true,
-  highlight(code) {
+  highlight(code, language) {
+    console.log('language', language)
     return hljs.highlightAuto(code).value
   }
 })
 
-export const markdown2html = function(markdown) {
+export const markdown2html = markdown => {
   return {
     content: marked(markdown),
     toc: tocObj.toHTML()

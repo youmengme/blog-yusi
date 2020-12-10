@@ -32,7 +32,6 @@ export default {
         size: 5
       })
     ])
-    console.log(articles, swipes)
     const result = {}
     if (!articles.code && articles.data) {
       result.list = articles.data.rows

@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build",
+    "build": "nuxt build --analysis",
     "start": "nuxt start",
+    "deploy": "pm2 start ./ecosystem.config.js",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "yarn lint:js && yarn lint:style",
@@ -13,6 +14,7 @@
   },
   "dependencies": {
     "axios": "^0.20.0",
+    "babel-plugin-component": "^1.1.1",
     "element-ui": "^2.13.2",
     "fs": "^0.0.1-security",
     "highlight.js": "^10.2.1",
