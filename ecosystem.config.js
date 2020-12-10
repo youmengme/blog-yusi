@@ -1,6 +1,6 @@
 module.exports = {
   apps: {
-    name: 'blog-refactor-1', // 项目名
+    name: 'blog-refactor-client', // 项目名
     script: 'npm', // 执行文件
     cwd: './', // 根目录
     args: 'start', // 传递给脚本的参数
