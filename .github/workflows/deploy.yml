@@ -13,9 +13,12 @@ jobs:
         uses: actions/setup-node@v2.1.2
         with:
             node-version: 12  
+      - uses: egordm/gha-yarn-node-cache@v1
       - name: Install and Build
         run: |
           npm install
+      - name: Buile Project
+        run: |
           npm run build
           
       - name: Copy File To Service
