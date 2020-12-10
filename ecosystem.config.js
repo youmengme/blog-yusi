@@ -1,9 +1,9 @@
 module.exports = {
   apps: {
     name: 'blog-v2', // 项目名
-    script: 'yarn', // 执行文件
+    script: 'npm', // 执行文件
     cwd: './', // 根目录
-    args: 'start', // 传递给脚本的参数
+    args: 'run start', // 传递给脚本的参数
     interpreter: '', // 指定的脚本解释器
     interpreter_args: '', // 传递给解释器的参数
     watch: false, // 是否监听文件变动然后重启
