@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'cyjianxk';
+    src: url('cyjianxk.eot');
+    src: url('cyjianxk.eot#iefix') format('embedded-opentype'),
+    url('cyjianxk.woff2') format('woff2'),
+    url('cyjianxk.woff') format('woff'),
+    url('cyjianxk.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.css {
+    font-family: 'cyjianxk';
+}

@@ -4,10 +4,7 @@
       <custom-header @toggle="translateContentWrap" />
       <div class="container">
         <Affiche />
-        <div class="page-container">
-          <div class="page-wrap"><nuxt /></div>
-          <div class="page-widget hidden-sm-and-down"><custom-widget /></div>
-        </div>
+        <div class="page-container"><nuxt /></div>
       </div>
       <custom-footer />
       <back-top />
@@ -18,7 +15,6 @@
 <script>
 import customHeader from '@/components/Header'
 import customFooter from '@/components/footer'
-import customWidget from '@/components/widget'
 import Affiche from '@/components/affiche'
 
 import backTop from '@/components/right'
@@ -26,10 +22,10 @@ export default {
   components: {
     customHeader,
     customFooter,
-    customWidget,
     Affiche,
     backTop
   },
+  // middleware: 'distribute',
   data() {
     return {
       showList: ['all'],
@@ -64,20 +60,11 @@ export default {
   display: flex;
   align-items: flex-start;
   max-width: 1226px;
-
-  .page-wrap {
-    width: 856px;
-    max-width: 979px;
-    min-height: 80vh;
-    flex: 1;
-  }
-
-  .page-widget {
-    width: 360px;
-    margin-left: 10px;
-    position: sticky;
-    top: 10px;
-    flex-shrink: 0;
-  }
+}
+</style>
+<style>
+* {
+  padding: 0;
+  margin: 0;
 }
 </style>
