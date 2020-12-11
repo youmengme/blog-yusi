@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // const apiUrl = 'https://api.youmeng.me'
-const apiUrl = ' http://localhost:4000'
+const apiUrl = 'https://blog.cn1.utools.club'
 
 const service = axios.create({
   baseURL: apiUrl,
