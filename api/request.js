@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-// const apiUrl = 'https://api.youmeng.me'
+// const apiUrl = 'https://api-blog.youmeng.me'
 const apiUrl = 'https://blog.cn1.utools.club'
 
 const service = axios.create({

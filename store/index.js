@@ -1,6 +1,6 @@
 import { getArticleList, getTagList } from '@/api'
 export const state = () => ({
-  announcement: '愿你初心不改，历尽千山，归来仍是少年。',
+  announcement: '你总是这样轻言放弃的话，无论多久你都只会原地踏步。',
   recommendArticles: [],
   recommendTags: [],
   newest: null
