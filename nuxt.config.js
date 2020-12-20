@@ -77,6 +77,10 @@ export default {
    */
   modules: [],
 
+  env: {
+    NODE_NEV: process.env.NODE_NEV
+  },
+
   /**
    * Router configuration
    * See https://zh.nuxtjs.org/api/configuration-router

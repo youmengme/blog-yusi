@@ -1,7 +1,10 @@
 import axios from 'axios'
 
-// const apiUrl = 'https://api-blog.youmeng.me'
-const apiUrl = 'https://blog.cn1.utools.club'
+console.log('process.env.NODE_ENV', process.env.NODE_ENV)
+const apiUrl =
+  process.env.NODE_ENV === 'production'
+    ? 'https://api-blog.youmeng.me'
+    : 'https://blog.cn1.utools.club'
 
 const service = axios.create({
   baseURL: apiUrl,
@@ -13,7 +16,10 @@ const service = axios.create({
 })
 
 service.interceptors.request.use(
-  config => config,
+  config => {
+    console.log(config.url, config.baseURL)
+    return config
+  },
   error => {
     return Promise.reject(error)
   }
