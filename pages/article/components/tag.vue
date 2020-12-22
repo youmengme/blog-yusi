@@ -34,6 +34,7 @@ export default {
   display: flex;
   align-items: center;
   width: auto;
+  max-width: 100vw;
   height: 55px;
   border-top: 1px solid #f7f7f7;
   background: #fff;

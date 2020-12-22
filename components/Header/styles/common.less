@@ -1,0 +1,51 @@
+.header {
+  position: relative;
+  background: #1abc9c;
+  z-index: 100;
+  .container-inner {
+    position: relative;
+    max-width: 1226px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+
+    .ym-logo {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      text-shadow: 0 0 1px rgba(94, 255, 216, 0.8);
+      padding: 15px 0;
+      color: #fff;
+      cursor: pointer;
+      letter-spacing: -2px;
+
+      &:hover {
+        .ym-mono {
+          letter-spacing: 5px;
+        }
+
+        .ym-bloger {
+          left: 26px;
+          opacity: 0.2;
+        }
+      }
+
+      .ym-bloger {
+        font-weight: bold;
+        font-size: 24px;
+        margin-left: -6px;
+        font-family: 'cyjianxk', serif;
+        transition: all 0.5s ease-out;
+      }
+
+      .ym-mono {
+        font-size: 54px;
+        font-family: 'RS_XingKai', serif;
+        transition: all 0.1s ease-out;
+        font-weight: bold;
+      }
+    }
+  }
+}

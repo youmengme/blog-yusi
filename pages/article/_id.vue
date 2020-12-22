@@ -32,7 +32,7 @@
     </div>
     <div
       id="article-detail-container"
-      class="md-dark"
+      class="markdown-preview md-dark"
       v-html="articleInfo.content"
     />
     <div class="article-extends">
@@ -48,12 +48,16 @@
     </div>
 
     <Tags :list="articleInfo.tags" />
-    <Relates :list="relates" />
-    <Comments />
+    <MatchMedia v-slot="{ pc }">
+      <Relates :list="relates" v-if="pc" />
+      <Comments v-if="pc" />
+    </MatchMedia>
   </div>
 </template>
 
 <script>
+import { MatchMedia } from 'vue-component-media-queries'
+
 import { getArticleDetail, getRelateArticles } from './service'
 import Tags from './components/tag'
 import Relates from './components/related'
@@ -62,6 +66,7 @@ import Comments from './components/comment'
 export default {
   name: 'Article',
   components: {
+    MatchMedia,
     Tags,
     Relates,
     Comments
@@ -95,6 +100,7 @@ export default {
 <style scoped lang="less">
 .page-article {
   .article-basic {
+    max-width: 100vw;
     background: #fff;
     border-bottom: 1px solid #dfdfdf;
 
@@ -129,6 +135,7 @@ export default {
       padding: 25px 10px;
       font-size: 30px;
       font-weight: 500;
+      max-width: 100vw;
     }
 
     .info {
@@ -157,6 +164,7 @@ export default {
   .article-extends {
     padding: 10px 20px 20px 20px;
     background: #fff;
+    max-width: 100vw;
 
     i {
       margin-left: -10px;
@@ -167,6 +175,7 @@ export default {
       display: flex;
       align-items: center;
       width: 100%;
+      max-width: 100vw;
       padding: 5px 10px;
       border-radius: 2px;
       background-color: #fcf8e3;

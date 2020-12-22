@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import ArticleItem from './article'
+import ArticleItem from './Article/index'
 import Pagination from './pagination'
 
 export default {

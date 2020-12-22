@@ -1,34 +1,50 @@
 <template>
-  <div>
+  <MediaQueryProvider
+    :queries="$options.queries"
+    @change="onMediaQueryChange"
+    ssr
+  >
     <div class="content-default" :style="wrapStyle">
-      <custom-header @toggle="translateContentWrap" />
+      <CHeader @toggle="translateContentWrap" />
+
       <div class="container">
-        <Affiche />
+        <MatchMedia v-slot="{ pc }"> <Affiche v-if="pc" /> </MatchMedia>
         <div class="page-container">
           <div class="page-wrap"><nuxt /></div>
-          <div class="page-widget hidden-sm-and-down"><custom-widget /></div>
+          <MatchMedia v-slot="{ pc }">
+            <div class="page-widget" v-if="pc"><CWidget /></div>
+          </MatchMedia>
         </div>
       </div>
-      <custom-footer />
+      <CFooter />
       <back-top />
     </div>
-  </div>
+  </MediaQueryProvider>
 </template>
 
 <script>
-import customHeader from '@/components/Header'
-import customFooter from '@/components/footer'
-import customWidget from '@/components/widget'
-import Affiche from '@/components/affiche'
+import { MediaQueryProvider, MatchMedia } from 'vue-component-media-queries'
 
+import CHeader from '@/components/Header'
+import CFooter from '@/components/footer'
+import CWidget from '@/components/widget'
+import Affiche from '@/components/affiche'
 import backTop from '@/components/right'
+
+import { uaParser } from '../utils/tramsforms/ua'
 export default {
   components: {
-    customHeader,
-    customFooter,
-    customWidget,
+    MediaQueryProvider,
+    MatchMedia,
+    CHeader,
+    CFooter,
+    CWidget,
     Affiche,
     backTop
+  },
+  queries: {
+    mobile: '(max-width: 760px)',
+    pc: '(min-width: 761px)'
   },
   data() {
     return {
@@ -36,10 +52,14 @@ export default {
       widgetData: {},
       position: '',
       status: 0,
-      wrapStyle: ''
+      wrapStyle: '',
+      isMobile: uaParser().isMobile
     }
   },
   methods: {
+    onMediaQueryChange(data) {
+      console.log('onMediaQueryChange', data)
+    },
     translateContentWrap() {
       this.wrapStyle = this.wrapStyle
         ? ''

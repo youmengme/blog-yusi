@@ -1,9 +1,8 @@
 <template>
   <footer id="footer" class="footer">
     <div class="copyright">
-      <a href="http://www.youmeng.me">Youmeng.me</a> 版权所有，保留一切权利 !
-      由NODEPRESS、NUXT.JS和魔法代码强力驱动 · 站点地图 © 2018 · 托管于 阿里云 &
-      七牛
+      <a href="http://www.youmeng.me">Youmeng.me</a> 版权所有 由NUXT & Nest构建
+      托管于 阿里云 & 七牛
     </div>
   </footer>
 </template>
@@ -33,6 +32,9 @@ export default {
   &,
   a {
     color: var(--gray);
+  }
+  .copyright {
+    font-size: 12px;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="announcement" class="affiche hidden-md-and-down">
+  <div v-if="announcement" class="affiche">
     <span class="icon"> <i class="fa fa-volume-up" /> </span>
     {{ announcement || '暂无网站公告' }}
   </div>

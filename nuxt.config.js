@@ -57,7 +57,7 @@ export default {
     '~/plugins/prototype',
     {
       src: '~plugins/lazyload.js',
-      ssr: true
+      ssr: false
     }
   ],
   /*
