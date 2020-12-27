@@ -86,6 +86,7 @@ export default {
    * See https://zh.nuxtjs.org/api/configuration-router
    */
   router: {
+    middleware: 'device',
     extendRoutes(routes, resolve) {
       routes.push({
         name: 'index',

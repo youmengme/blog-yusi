@@ -1,31 +1,20 @@
 <template>
-  <MediaQueryProvider
-    :queries="$options.queries"
-    @change="onMediaQueryChange"
-    ssr
-  >
-    <div class="content-default" :style="wrapStyle">
-      <CHeader @toggle="translateContentWrap" />
-
-      <div class="container">
-        <MatchMedia v-slot="{ pc }"> <Affiche v-if="pc" /> </MatchMedia>
-        <div class="page-container">
-          <div class="page-wrap"><nuxt /></div>
-          <MatchMedia v-slot="{ pc }">
-            <div class="page-widget" v-if="pc"><CWidget /></div>
-          </MatchMedia>
-        </div>
+  <div class="content-default pc-main" :style="wrapStyle">
+    <CHeader @toggle="translateContentWrap" />
+    <div class="container">
+      <Affiche />
+      <div class="page-container">
+        <div class="page-wrap"><nuxt /></div>
+        <div class="page-widget" v-platform="'pc'"><CWidget /></div>
       </div>
-      <CFooter />
-      <back-top />
     </div>
-  </MediaQueryProvider>
+    <CFooter />
+    <back-top />
+  </div>
 </template>
 
 <script>
-import { MediaQueryProvider, MatchMedia } from 'vue-component-media-queries'
-
-import CHeader from '@/components/Header'
+import CHeader from '@/components/Header/pc'
 import CFooter from '@/components/footer'
 import CWidget from '@/components/widget'
 import Affiche from '@/components/affiche'
@@ -34,8 +23,6 @@ import backTop from '@/components/right'
 import { uaParser } from '../utils/tramsforms/ua'
 export default {
   components: {
-    MediaQueryProvider,
-    MatchMedia,
     CHeader,
     CFooter,
     CWidget,

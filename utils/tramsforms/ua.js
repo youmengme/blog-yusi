@@ -2,7 +2,7 @@ import parser from 'ua-parser-js'
 
 export const uaParser = userAgent => {
   if (!process.client) return {}
-  const parseResult = parser(userAgent || navigator.userAgent || '')
+  const parseResult = parser(userAgent || window.navigator.userAgent || '')
   const browserName = String(parseResult.browser.name).toLowerCase()
   const isTargetDevice = browsers => {
     return browsers.some(browser => browser.toLowerCase() === browserName)

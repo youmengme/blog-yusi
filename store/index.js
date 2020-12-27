@@ -1,13 +1,18 @@
 import { getArticleList, getTagList } from '@/api'
+import { deviceType } from '@/utils/deviceType'
+
+const SET_GLOBAL_DATA = 'SET_GLOBAL_DATA'
+
 export const state = () => ({
   announcement: '你总是这样轻言放弃的话，无论多久你都只会原地踏步。',
   recommendArticles: [],
   recommendTags: [],
-  newest: null
+  newest: null,
+  platformInfo: {}
 })
 
 export const mutations = {
-  setGlobalData(state, [key, val]) {
+  [SET_GLOBAL_DATA](state, [key, val]) {
     state[key] = val
   },
   addWidgetData(state, obj) {
@@ -19,11 +24,12 @@ export const mutations = {
 }
 
 export const actions = {
-  nuxtServerInit(store, { params, route, req }) {
+  nuxtServerInit({ dispatch }, context) {
     const initAppData = [
-      store.dispatch('initWidgetTag'),
-      store.dispatch('initWidgetNewest'),
-      store.dispatch('initWidgetArticle')
+      dispatch('initGlobalPlatform', context),
+      dispatch('initWidgetTag'),
+      dispatch('initWidgetNewest'),
+      dispatch('initWidgetArticle')
     ]
     return Promise.all(initAppData)
   },
@@ -34,7 +40,7 @@ export const actions = {
       type: 'like'
     })
     if (code || !data || !data.length) return
-    commit('setGlobalData', ['recommendArticles', data || []])
+    commit(SET_GLOBAL_DATA, ['recommendArticles', data || []])
   },
 
   // 最新文章
@@ -44,7 +50,7 @@ export const actions = {
       type: 'date'
     })
     if (code || !data || !data.length) return
-    commit('setGlobalData', ['newest', data[0] || null])
+    commit(SET_GLOBAL_DATA, ['newest', data[0] || null])
   },
 
   // 标签云
@@ -53,9 +59,19 @@ export const actions = {
       size: 10
     })
     if (code || !data || !data.length) return
-    commit('setGlobalData', ['recommendTags', data || []])
+    commit(SET_GLOBAL_DATA, ['recommendTags', data || []])
   },
 
   // 友情链接
-  initWidgetLinks({ commit }) {}
+  initWidgetLinks({ commit }) {},
+
+  // 设置环境相关
+  initGlobalPlatform({ commit }, context) {
+    context.userAgent = process.server
+      ? context.req.headers['user-agent']
+      : navigator.userAgent
+    const deviceInfo = deviceType(context.userAgent)
+    context.platformInfo = deviceInfo
+    commit(SET_GLOBAL_DATA, ['platformInfo', deviceInfo])
+  }
 }

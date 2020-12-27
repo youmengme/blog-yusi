@@ -8,10 +8,13 @@
 <script>
 import ArticleList from '@/components/ArticleList/index'
 import { getArticleList } from '@/api'
-import swiper from '../../components/slider'
+import swiper from './components/slider'
 
 export default {
   name: 'Index',
+  layout: context => {
+    return context.deviceType.platform === 'pc' ? 'pc' : 'mobile'
+  },
   components: {
     swiper,
     ArticleList

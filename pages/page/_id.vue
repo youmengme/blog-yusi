@@ -17,6 +17,9 @@ import Archive from '../../components/archive'
 
 export default {
   name: 'Page',
+  layout: context => {
+    return context.deviceType.platform === 'pc' ? 'pc' : 'mobile'
+  },
   components: {
     ArticleList,
     Archive

@@ -1,5 +1,5 @@
 <template>
-  <div class="reply">
+  <div class="reply" :class="$platform.isMobile ? 'mobile' : 'pc'">
     <div class="main-reply">
       <img class="reply-avatar" :src="info.avatar" />
       <div class="reply-info" :data-floor="info.id">

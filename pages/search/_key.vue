@@ -15,7 +15,9 @@ import ArticleList from '../../components/ArticleList'
 
 export default {
   name: 'Search',
-  layout: 'full',
+  layout: context => {
+    return context.deviceType.platform === 'pc' ? 'pc' : 'mobile'
+  },
   components: {
     ArticleList
   },

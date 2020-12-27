@@ -9,7 +9,12 @@
         :title="item.title"
         class="posts-item"
       >
-        <div class="cover"><img v-lazy="item.cover" :alt="item.title" /></div>
+        <div class="cover">
+          <img
+            v-lazy="$formatImageUrl(item.cover, 'pc_global_widget_related')"
+            :alt="item.title"
+          />
+        </div>
         <div class="article-info">
           <span class="article-title"> {{ item.title }} </span>
           <p class="article-date">

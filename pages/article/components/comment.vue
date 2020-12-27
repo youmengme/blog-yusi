@@ -1,5 +1,9 @@
 <template>
-  <div class="comments" id="comment">
+  <div
+    class="comments"
+    id="comment"
+    :class="$platform.isMobile ? 'mobile' : 'pc'"
+  >
     <div class="title">
       评论 <span>{{ 0 || '抢沙发' }}</span>
     </div>
@@ -33,6 +37,7 @@
 
 <script>
 import Reply from './reply'
+
 export default {
   name: 'Comments',
   props: {},
@@ -76,6 +81,19 @@ export default {
   padding: 20px;
   margin-top: 10px;
   background: #fff;
+
+  &.mobile {
+    .user-info {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+
+      .label {
+        flex: 1 !important;
+        margin-right: 0 !important;
+        margin-bottom: 10px !important;
+      }
+    }
+  }
 
   .title {
     font-size: 16px;
@@ -181,6 +199,7 @@ export default {
         border: 1px solid #d1d1d1;
         color: #888;
       }
+
       &:hover {
         opacity: 0.9;
       }

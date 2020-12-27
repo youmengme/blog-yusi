@@ -1,6 +1,10 @@
 <template>
   <div class="swiper">
-    <el-carousel :interval="3000" height="220px" indicator-position="none">
+    <el-carousel
+      :interval="3000"
+      :height="$platform.isMobile ? '110px' : '220px'"
+      indicator-position="none"
+    >
       <el-carousel-item
         v-for="(item, index) in list"
         :key="index"
@@ -10,7 +14,15 @@
           class="carousel-item"
           :to="$getPageRouter('article', item.id)"
         >
-          <img :src="item.cover" alt="" />
+          <img
+            v-lazy="
+              $formatImageUrl(
+                item.cover,
+                $platform.isMobile ? 'm_index_slider' : 'pc_index_slider'
+              )
+            "
+            alt=""
+          />
         </nuxt-link>
       </el-carousel-item>
     </el-carousel>

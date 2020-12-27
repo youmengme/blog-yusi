@@ -1,4 +1,8 @@
 .article-item.mobile {
+  width: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+
   .article-header {
     margin-bottom: 0;
 
@@ -31,6 +35,22 @@
     .article-desc {
       .global-lines(4);
       font-size: 12px;
+    }
+  }
+
+  .article-ext {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 36px;
+    border-top: 1px solid #fafafa;
+    margin-top: 5px;
+
+    div {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }
