@@ -42,13 +42,13 @@ export default {
     Relates,
     Comments
   },
-  async asyncData({ params }) {
+  async asyncData({ params, redirect }) {
     const relateArticles = await getRelateArticles({
       type: 'view',
       size: 4
     })
     const articleInfo = await getArticleDetail(params.id)
-
+    if (!articleInfo) return redirect('/article/error')
     return {
       articleInfo,
       relates: relateArticles

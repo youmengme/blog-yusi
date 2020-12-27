@@ -119,7 +119,7 @@ export default {
    */
   build: {
     maxChunkSize: 360000,
-    extractCSS: true,
+    extractCSS: process.env.NODE_NEV === 'production',
     transpile: [/^element-ui/],
     styleResources: {
       less: './assets/css/mixins.less'
