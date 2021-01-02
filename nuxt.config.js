@@ -122,7 +122,7 @@ export default {
     extractCSS: process.env.NODE_NEV === 'production',
     publicPath:
       process.env.NODE_NEV === 'production'
-        ? 'https://www.youmeng.me/static'
+        ? 'https://cdn.youmeng.me/static'
         : '/_nuxt/',
     transpile: [/^element-ui/],
     styleResources: {
