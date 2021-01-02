@@ -22,7 +22,7 @@ jobs:
         run: |
           npm run build
           rm -rf ./node_modules
-          ls
+          la
 
       - name: Upload To OSS
         uses: tvrcgo/upload-to-oss@v0.1.1
