@@ -31,7 +31,7 @@ jobs:
           access-key-id: ${{ secrets.OSS_ID }}
           access-key-secret: ${{ secrets.OSS_SECRET }}
           entry: .nuxt/dist/client/*
-          remote-dir: /static
+          remote-dir: /static/
           path-rewrite: ^.nuxt/dist/client/
 
       - name: Copy File To Service
