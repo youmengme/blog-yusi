@@ -31,7 +31,7 @@ jobs:
           key-secret: ${{ secrets.OSS_SECRET }}
           region: oss-cn-huhehaote
           bucket: blog-v3
-          asset-path: .nuxt/dist/client/*
+          asset-path: .nuxt/dist/client/
           target-path: /static
 
       - name: Copy File To Service
