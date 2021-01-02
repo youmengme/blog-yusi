@@ -32,6 +32,8 @@ jobs:
           access-key-secret: ${{ secrets.OSS_SECRET }}
           entry: .nuxt/dist/client/*
           remote-dir: /static
+          path-rewrite: ^.nuxt/dist/client/
+
       - name: Copy File To Service
         uses: appleboy/scp-action@master
         env:
