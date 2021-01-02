@@ -120,10 +120,11 @@ export default {
   build: {
     maxChunkSize: 360000,
     extractCSS: process.env.NODE_NEV === 'production',
-    publicPath:
-      process.env.NODE_NEV === 'production'
-        ? 'https://cdn.youmeng.me/static'
-        : '/_nuxt/',
+    // publicPath:
+    //   process.env.NODE_NEV === 'production'
+    //     ? 'https://cdn.youmeng.me/static'
+    //     : '/_nuxt/',
+    publicPath: 'https://cdn.youmeng.me/static',
     transpile: [/^element-ui/],
     styleResources: {
       less: './assets/css/mixins.less'
