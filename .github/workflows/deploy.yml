@@ -24,7 +24,7 @@ jobs:
           rm -rf ./node_modules
           
       - name: Upload To OSS
-        uses: yinlinyang/ali-oss-utils@1.0.1
+        uses: tvrcgo/upload-to-oss@v0.1.1
         with:
           region: oss-cn-huhehaote  
           bucket: blog-v3
