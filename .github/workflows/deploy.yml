@@ -24,14 +24,14 @@ jobs:
           rm -rf ./node_modules
           
       - name: Upload To OSS
-        uses: steve9II/alioss-deploy-action@v1.0-beta
+        uses: taixw2/deploy-aliyun-oss@1
         with:
-          staticPath: .nuxt/dist/client/ 
-          deployPath: /static
           region: oss-cn-huhehaote  
           bucket: blog-v3
-          accessKeyId: ${{ secrets.OSS_ID }}
-          accessKeySecret: ${{ secrets.OSS_SECRET }}
+          access-key-id: ${{ secrets.OSS_ID }}
+          access-key-secret: ${{ secrets.OSS_SECRET }}
+          entry: .nuxt/dist/client/*
+          remote-dir: /static
       - name: Copy File To Service
         uses: appleboy/scp-action@master
         env:
