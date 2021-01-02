@@ -43,7 +43,7 @@ jobs:
           KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         with:
           overwrite: true
-          source: "*"
+          source: ".nuxt,ecosystem.config.js,package.json"
           target: "/www/wwwroot/www.youmeng.me/client"
 
       - name: Install and Start
