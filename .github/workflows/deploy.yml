@@ -33,6 +33,7 @@ jobs:
           asset-path: .nuxt/dist/client/
           target-path: /static/
 
+
       - name: Copy File To Service
         uses: appleboy/scp-action@master
         env:
