@@ -2,27 +2,15 @@
   <div class="swiper">
     <el-carousel
       :interval="3000"
-      :height="$platform.isMobile ? '110px' : '220px'"
-      indicator-position="none"
+      :height="$platform.isMobile ? '110px' : '230px'"
     >
       <el-carousel-item
         v-for="(item, index) in list"
         :key="index"
         class="el-carousel-item-custom"
       >
-        <nuxt-link
-          class="carousel-item"
-          :to="$getPageRouter('article', item.id)"
-        >
-          <img
-            v-lazy="
-              $formatImageUrl(
-                item.cover,
-                $platform.isMobile ? 'm_index_slider' : 'pc_index_slider'
-              )
-            "
-            alt=""
-          />
+        <nuxt-link class="carousel-item" :to="item.url">
+          <img v-lazy="$formatImageUrl(item.cover, '')" alt="" />
         </nuxt-link>
       </el-carousel-item>
     </el-carousel>
@@ -46,7 +34,7 @@ export default {
 
 <style scoped lang="less">
 .swiper {
-  padding: 20px;
+  padding: 12.5px;
   background: #fff;
   margin-bottom: 10px;
   box-sizing: border-box;
@@ -60,10 +48,14 @@ export default {
   }
 
   .carousel-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: auto;
     height: 100%;
     background: #ddd;
-    border: 1px solid rgba(200, 200, 200, 0.2);
+    border-radius: 3px;
+    overflow: hidden;
 
     img {
       width: 100%;

@@ -9,7 +9,11 @@ export const getArticleList = (params = {}) => {
     method: 'GET'
   })
 }
-
+export const getIndexPageSwiper = () => {
+  return request({
+    url: '/articles/recommend'
+  })
+}
 // 获取文章分类列表
 export const getCategoryArticle = data => {
   return request({
