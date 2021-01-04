@@ -23,14 +23,14 @@ jobs:
           npm run build
           rm -rf ./node_modules
       - name: OSS Upload Tool
-        uses: youmengme/oss-upload-tool@v1.0.1
+        uses: youmengme/oss-upload-tool@v1.0.2
         with:
           accessKeyId: ${{ secrets.OSS_ID }}
           accessKeySecret: ${{ secrets.OSS_SECRET }}
           bucket: ${{ secrets.OSS_BUCKET }}
           region: ${{ secrets.OSS_REGION }}
-          assetPath:: ${{ secrets.OSS_ASSETS_PATH }}
-          targetPath: ${{ secrets.OSS_TARGET_PATH }}
+          assetPath:: ./.nuxt/dist/client/
+          targetPath: /static/
       - name: Copy File To Service
         uses: appleboy/scp-action@master
         env:
