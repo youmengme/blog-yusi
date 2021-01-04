@@ -29,8 +29,8 @@ jobs:
           accessKeySecret: ${{ secrets.OSS_SECRET }}
           bucket: ${{ secrets.OSS_BUCKET }}
           region: ${{ secrets.OSS_REGION }}
-          assetPath:: ./.nuxt/dist/client/
-          targetPath: /static/
+          assetPath: "./.nuxt/dist/client/"
+          targetPath: "/static/"
       - name: Copy File To Service
         uses: appleboy/scp-action@master
         env:
