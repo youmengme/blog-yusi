@@ -20,6 +20,8 @@
     "lint-fix": "eslint --fix --ext .js,.vue ."
   },
   "dependencies": {
+    "@sentry/browser": "^5.29.2",
+    "@sentry/integrations": "^5.29.2",
     "axios": "^0.20.0",
     "babel-plugin-component": "^1.1.1",
     "element-ui": "^2.13.2",

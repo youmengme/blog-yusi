@@ -33,7 +33,6 @@ export default {
       getIndexPageSwiper()
     ])
     const result = {}
-    console.log('swipes', swipes)
     if (!articles.code && articles.data) {
       result.list = articles.data.rows
       result.count = articles.data.count
@@ -41,7 +40,6 @@ export default {
     if (!swipes.code && swipes.data) {
       result.swipes = swipes.data
     }
-
     return result
   },
   data() {
