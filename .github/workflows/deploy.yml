@@ -12,14 +12,13 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.2
         with:
-            node-version: 12
-            
-      - name: Start Deploy
-        uses: fjogeleit/http-request-action@v1.6.0
+          node-version: 12
+      - name: feishu bot
+        uses: wangsijie/feishu-bot@v1
         with:
-          url: ${{ secrets.WEBHOOK_URL }}
-          method: POST
-          data: '{"text":"开始部署"}'
+          version: 2
+          uuid: ${{ secrets.FEISHU_UUID }}
+          text: '开始部署....'
       - uses: egordm/gha-yarn-node-cache@v1
       - name: Install and Build
         run: |
@@ -62,9 +61,9 @@ jobs:
             cd /www/wwwroot/www.youmeng.me/client
             yarn
             npm run deploy 
-      - name: Start Deploy
-        uses: fjogeleit/http-request-action@v1.6.0
+      - name: feishu bot
+        uses: wangsijie/feishu-bot@v1
         with:
-          url: ${{ secrets.WEBHOOK_URL }}
-          method: POST
-          data: '{"text":"部署完成"}'
+          version: 2
+          uuid: ${{ secrets.FEISHU_UUID }}
+          text: '部署完成....'
