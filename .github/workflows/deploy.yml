@@ -29,7 +29,7 @@ jobs:
           npm run build
           rm -rf ./node_modules
       - name: OSS Upload Tool
-        uses: youmengme/oss-upload-tool@v1.0.25
+        uses: youmengme/oss-upload-tool@v1.0.26
         with:
           accessKeyId: ${{ secrets.OSS_ID }}
           accessKeySecret: ${{ secrets.OSS_SECRET }}
