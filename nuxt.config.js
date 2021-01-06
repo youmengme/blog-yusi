@@ -1,3 +1,5 @@
+const publicCdnUrl = '//cdn.youmeng.me/static'
+
 export default {
   /*
    ** Nuxt target
@@ -30,7 +32,7 @@ export default {
       }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      { rel: 'icon', type: 'image/png', href: `${publicCdnUrl}/favicon.png` },
       {
         rel: 'stylesheet',
         type: 'text/css',
@@ -120,11 +122,7 @@ export default {
   build: {
     maxChunkSize: 360000,
     extractCSS: process.env.NODE_NEV === 'production',
-    // publicPath:
-    //   process.env.NODE_NEV === 'production'
-    //     ? 'https://cdn.youmeng.me/static'
-    //     : '/_nuxt/',
-    publicPath: 'https://cdn.youmeng.me/static',
+    publicPath: publicCdnUrl,
     transpile: [/^element-ui/],
     styleResources: {
       less: './assets/css/mixins.less'
