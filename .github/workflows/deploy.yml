@@ -13,12 +13,6 @@ jobs:
         uses: actions/setup-node@v2.1.2
         with:
           node-version: 12
-      - name: OSS Upload Tool
-      - uses: manyuanrong/setup-ossutil@v2.0  
-        with:
-          endpoint: "oss-cn-huhehaote.aliyuncs.com"
-          access-key-id: ${{ secrets.OSS_ID }}
-          access-key-secret: ${{ secrets.OSS_SECRET }}
 
       - name: Feishu Bot
         uses: wangsijie/feishu-bot@v1
@@ -36,8 +30,16 @@ jobs:
         run: |
           npm run build
           rm -rf ./node_modules
+         
+      - name: OSS Upload Tool
+        uses: manyuanrong/setup-ossutil@v2.0  
+        with:
+          endpoint: "oss-cn-huhehaote.aliyuncs.com"
+          access-key-id: ${{ secrets.OSS_ID }}
+          access-key-secret: ${{ secrets.OSS_SECRET }}
+        run: |
           ossutil cp -rf ${{ secrets.OSS_ASSETS_PATH }} oss://${{ secrets.OSS_BUCKET }}/${{ secrets.OSS_TARGET_PATH }}
-       
+
       - name: Copy File To Service
         uses: appleboy/scp-action@master
         env:
