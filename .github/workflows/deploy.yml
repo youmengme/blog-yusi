@@ -40,7 +40,7 @@ jobs:
     
       - name: Upload
         run: |
-          ossutil cp -rf ${{ secrets.OSS_ASSETS_PATH }} oss://${{ secrets.OSS_BUCKET }}/${{ secrets.OSS_TARGET_PATH }}
+          ossutil cp -rf ${{ secrets.OSS_ASSETS_PATH }} oss://${{ secrets.OSS_BUCKET }}${{ secrets.OSS_TARGET_PATH }}
 
       - name: Copy File To Service
         uses: appleboy/scp-action@master
