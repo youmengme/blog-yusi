@@ -32,10 +32,10 @@ jobs:
       - name: OSS Upload Tool
       - uses: manyuanrong/setup-ossutil@v2.0  
         with:
-          endpoint: "oss.aliyuncs.com"
+          endpoint: "oss-cn-huhehaote.aliyuncs.com"
           access-key-id: ${{ secrets.OSS_ID }}
           access-key-secret: ${{ secrets.OSS_SECRET }}
-          sts-token: "sts_token"
+      - name: upload
       - run: ossutil cp -rf ${{ secrets.OSS_ASSETS_PATH }} oss://${{ secrets.OSS_BUCKET }}/${{ secrets.OSS_TARGET_PATH }}
        
       - name: Copy File To Service
