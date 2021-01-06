@@ -13,12 +13,20 @@ jobs:
         uses: actions/setup-node@v2.1.2
         with:
           node-version: 12
-      - name: feishu bot
+      - name: OSS Upload Tool
+      - uses: manyuanrong/setup-ossutil@v2.0  
+        with:
+          endpoint: "oss-cn-huhehaote.aliyuncs.com"
+          access-key-id: ${{ secrets.OSS_ID }}
+          access-key-secret: ${{ secrets.OSS_SECRET }}
+
+      - name: Feishu Bot
         uses: wangsijie/feishu-bot@v1
         with:
           version: 2
           uuid: ${{ secrets.FEISHU_UUID }}
           text: '开始部署....'
+
       - uses: egordm/gha-yarn-node-cache@v1
       - name: Install and Build
         run: |
@@ -28,15 +36,7 @@ jobs:
         run: |
           npm run build
           rm -rf ./node_modules
-
-      - name: OSS Upload Tool
-      - uses: manyuanrong/setup-ossutil@v2.0  
-        with:
-          endpoint: "oss-cn-huhehaote.aliyuncs.com"
-          access-key-id: ${{ secrets.OSS_ID }}
-          access-key-secret: ${{ secrets.OSS_SECRET }}
-      - name: upload
-      - run: ossutil cp -rf ${{ secrets.OSS_ASSETS_PATH }} oss://${{ secrets.OSS_BUCKET }}/${{ secrets.OSS_TARGET_PATH }}
+          ossutil cp -rf ${{ secrets.OSS_ASSETS_PATH }} oss://${{ secrets.OSS_BUCKET }}/${{ secrets.OSS_TARGET_PATH }}
        
       - name: Copy File To Service
         uses: appleboy/scp-action@master
@@ -61,7 +61,8 @@ jobs:
             cd /www/wwwroot/www.youmeng.me/client
             yarn
             npm run deploy 
-      - name: feishu bot
+
+      - name: Feishu Bot
         uses: wangsijie/feishu-bot@v1
         with:
           version: 2
