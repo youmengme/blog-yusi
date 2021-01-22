@@ -15,11 +15,10 @@ export const getIndexPageSwiper = () => {
   })
 }
 // 获取文章分类列表
-export const getCategoryArticle = data => {
+export const getCategoryArticle = (categoryId, params) => {
   return request({
-    url: '/getCategoryArticle',
-    data: qs.stringify(data),
-    method: 'POST'
+    url: `/articles/category/${categoryId}`,
+    params
   })
 }
 

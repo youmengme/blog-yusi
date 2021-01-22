@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { getArticleList, getCategoryDetail } from '@/api'
+import { getCategoryArticle, getCategoryDetail } from '@/api'
 import ArticleList from '../../components/ArticleList'
 import Archive from '../../components/archive'
 
@@ -26,8 +26,7 @@ export default {
   },
   async asyncData({ params }) {
     const [articleResult, categoryDetail] = await Promise.all([
-      getArticleList({
-        categoryId: params.id,
+      getCategoryArticle(params.id, {
         count: true
       }),
       getCategoryDetail(params.id)
