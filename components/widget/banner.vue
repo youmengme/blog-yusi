@@ -38,6 +38,9 @@ export default {
     justify-content: space-between;
     color: var(--red);
     font-weight: 500;
+    &:before {
+      background: var(--red);
+    }
   }
 
   .content {

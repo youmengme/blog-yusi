@@ -4,7 +4,7 @@
       友情链接
       <div class="action"><span @click="addLinks"> 添加 </span></div>
     </div>
-    <div class="content">
+    <div class="content" v-if="links.length">
       <nuxt-link
         v-for="(item, index) in links"
         :key="index"
@@ -14,6 +14,7 @@
         {{ item.name }}
       </nuxt-link>
     </div>
+    <div class="content empty" v-else>还没有友情链接呢~</div>
   </div>
 </template>
 
@@ -22,18 +23,7 @@ export default {
   name: 'Links',
   data() {
     return {
-      links: [
-        { name: '百度一下' },
-        { name: '百度一下' },
-        { name: '百度一下' },
-        { name: '百度一下' },
-        { name: '百度一下' },
-        { name: '百度一下' },
-        { name: '百度一下' },
-        { name: '百度一下' },
-        { name: '百度一下' },
-        { name: '百度一下' }
-      ]
+      links: []
     }
   },
   methods: {
@@ -72,6 +62,16 @@ export default {
       &:hover {
         background: var(--greyLight);
       }
+    }
+
+    &.empty {
+      width: auto;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #cccccc;
     }
   }
 }

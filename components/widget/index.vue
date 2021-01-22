@@ -40,12 +40,36 @@ export default {
     }
 
     .title {
+      position: relative;
       width: auto;
       height: 45px;
       line-height: 45px;
       text-align: left;
       font-size: 16px;
-      border-bottom: 1px solid #90bba8;
+      font-weight: 500;
+
+      &:after {
+        content: '';
+        position: absolute;
+        left: -20px;
+        right: -20px;
+        bottom: 0;
+        width: auto;
+        height: 1px;
+        background: #eee;
+      }
+
+      &:before {
+        content: '';
+        width: 4px;
+        height: 16px;
+        border-radius: 0 3px 3px 0;
+        background: var(--greenDrak);
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
     }
 
     .content {
