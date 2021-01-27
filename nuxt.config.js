@@ -80,7 +80,13 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: ['@nuxtjs/sentry'],
+  sentry: {
+    dsn: 'https://959fc2fc05fd4ea98e84a36dadf8a633@sentry.youmeng.me/9', // Enter your project's DSN here
+    config: {
+      lazy: true
+    } // Additional config
+  },
 
   env: {
     NODE_NEV: process.env.NODE_NEV
