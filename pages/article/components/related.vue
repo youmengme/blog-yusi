@@ -81,6 +81,7 @@ export default {
       .cover {
         width: 100%;
         margin-bottom: 10px;
+        border-radius: 3px;
       }
 
       .title {

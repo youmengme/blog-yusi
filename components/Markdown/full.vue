@@ -1,26 +1,33 @@
 <template>
-  <div></div>
+  <div
+    id="article-detail-container"
+    class="full markdown-preview md-dark"
+    v-html="html"
+  />
 </template>
 
 <script>
+import { markdown2html } from '~/plugins/markdown2html'
+
 export default {
   name: 'Full',
   props: {
     markdown: {
       type: String,
-      default: '',
-      validator: value => {
-        // 这个值必须匹配下列字符串中的一个
-        if (typeof value !== 'string') {
-          throw new TypeError(
-            'Parameter error: [markdown], Please pass in a string'
-          )
-        }
-        return true
-      }
+      default: ''
+    }
+  },
+  computed: {
+    html() {
+      const result = markdown2html(this.markdown)
+      return result.content
     }
   }
 }
 </script>
 
-<style scoped></style>
+<style scoped lang="less">
+@import './markdown';
+.full {
+}
+</style>

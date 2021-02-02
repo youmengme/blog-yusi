@@ -2,7 +2,7 @@
   <div class="page-search">
     <div class="search-container">
       <p class="title">搜索</p>
-      <input type="text" class="search-input" placeholder="请输入搜索关键词" />
+      <input type="text" class="search-input" placeholder="搜索功能还没实现" />
       <button class="search-btn">搜索</button>
     </div>
     <ArticleList :list="list" :total="count" />
@@ -22,11 +22,15 @@ export default {
     ArticleList
   },
   async asyncData() {
-    const { code, data } = await getArticleList({})
+    const { code, data } = await getArticleList({
+      type: 'date',
+      count: true,
+      size: 10
+    })
     if (code || !data) return
-    const { list = [], count = 0 } = data
+    const { rows = [], count = 0 } = data
     return {
-      list,
+      list: rows,
       count
     }
   },
@@ -37,8 +41,9 @@ export default {
     }
   },
   head() {
+    const kw = this.$route.query?.kw || ''
     return {
-      title: '首页'
+      title: `${kw ? kw + ' - ' : ''}搜索结果`
     }
   }
 }

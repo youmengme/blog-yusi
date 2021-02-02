@@ -67,6 +67,7 @@ export default {
         height: 65px;
         margin-right: 10px;
         overflow: hidden;
+        border-radius: 3px;
 
         img {
           width: 100px;

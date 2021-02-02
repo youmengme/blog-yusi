@@ -72,70 +72,22 @@ export default {
           url: '/',
           children: []
         },
-        // {
-        //   name: '笔记',
-        //   url: '/',
-        //   children: [
-        //     {
-        //       name: 'Vue',
-        //       url: '/',
-        //       children: []
-        //     },
-        //     {
-        //       name: 'React',
-        //       url: '/',
-        //       children: []
-        //     },
-        //     {
-        //       name: 'Typescript',
-        //       url: '/',
-        //       children: []
-        //     }
-        //   ]
-        // },
         {
           name: 'LeetCode',
           url: '/category/5'
-          // children: [
-          //   {
-          //     name: 'Easy',
-          //     url: '/',
-          //     children: []
-          //   },
-          //   {
-          //     name: 'Medium',
-          //     url: '/',
-          //     children: []
-          //   },
-          //   {
-          //     name: 'Hard',
-          //     url: '/',
-          //     children: []
-          //   }
-          // ]
         },
         {
           name: '随笔',
           url: '/category/3',
           children: []
         }
-        // {
-        //   name: '效率工具',
-        //   url: '/',
-        //   children: []
-        // },
-        // {
-        //   name: '关于我',
-        //   url: '/',
-        //   children: []
-        // }
       ]
     }
   },
   methods: {
     handleSearchKeyword() {
       if (!this.kw) return
-      console.log(this.kw)
+      this.$router.push('/search?kw=' + this.kw)
     },
     toggleMenu() {
       this.showMenu = !this.showMenu

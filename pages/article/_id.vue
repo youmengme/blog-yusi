@@ -1,18 +1,14 @@
 <template>
   <div class="page-article">
     <BasicInfo :detail="articleInfo" />
-    <div
-      id="article-detail-container"
-      class="markdown-preview md-dark"
-      v-html="articleInfo.content"
-    />
+    <Markdown type="full" :markdown="articleInfo.content" />
     <div class="article-extends">
       <div class="tips">
         <i class="fa fa-bullhorn" />
         如果你觉得这篇文章对你有所帮助，请点击下方[喜欢]按钮支持我继续更新网站！
       </div>
       <div class="actions">
-        <div class="like"><i class="fa fa-heart-o" /> 喜欢(99+)</div>
+        <div class="like"><i class="fa fa-heart-o" /> 喜欢</div>
         <span>OR</span>
         <div class="share"><i class="fa fa-share-alt" /> 分享</div>
       </div>
@@ -25,11 +21,12 @@
 </template>
 
 <script>
-import { getArticleDetail, getRelateArticles } from './service'
+import Markdown from '@/components/Markdown'
 import BasicInfo from './components/basicInfo'
 import Tags from './components/tag'
 import Relates from './components/related'
 import Comments from './components/comment'
+import { getArticleDetail, getRelateArticles } from './service'
 
 export default {
   name: 'Article',
@@ -40,7 +37,8 @@ export default {
     BasicInfo,
     Tags,
     Relates,
-    Comments
+    Comments,
+    Markdown
   },
   async asyncData({ params, redirect }) {
     const relateArticles = await getRelateArticles({
@@ -61,8 +59,9 @@ export default {
     }
   },
   head() {
+    const title = this.articleInfo?.title || ''
     return {
-      title: '首页'
+      title
     }
   }
 }

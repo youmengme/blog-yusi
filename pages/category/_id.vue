@@ -52,8 +52,9 @@ export default {
     }
   },
   head() {
+    const title = `${this.categoryInfo?.name} - 分类`
     return {
-      title: '首页'
+      title
     }
   }
 }

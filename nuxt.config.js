@@ -18,6 +18,7 @@ export default {
       lang: 'zh-CN',
       style: 'font-size:37.5px'
     },
+    titleTemplate: '%s - Youmeng.me',
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },

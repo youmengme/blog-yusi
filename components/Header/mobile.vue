@@ -77,55 +77,12 @@ export default {
           children: []
         },
         {
-          name: '笔记',
-          url: '/',
-          children: [
-            {
-              name: 'Vue',
-              url: '/',
-              children: []
-            },
-            {
-              name: 'React',
-              url: '/',
-              children: []
-            },
-            {
-              name: 'Typescript',
-              url: '/',
-              children: []
-            }
-          ]
-        },
-        {
           name: 'LeetCode',
-          url: '/category/1',
-          children: [
-            {
-              name: 'Easy',
-              url: '/',
-              children: []
-            },
-            {
-              name: 'Medium',
-              url: '/',
-              children: []
-            },
-            {
-              name: 'Hard',
-              url: '/',
-              children: []
-            }
-          ]
+          url: '/category/5'
         },
         {
-          name: '效率工具',
-          url: '/',
-          children: []
-        },
-        {
-          name: '关于我',
-          url: '/',
+          name: '随笔',
+          url: '/category/3',
           children: []
         }
       ]
@@ -134,11 +91,10 @@ export default {
   methods: {
     handleSearchKeyword() {
       if (!this.kw) return
-      console.log(this.kw)
+      this.$router.push('/search?kw=' + this.kw)
     },
     toggleMenu() {
       this.showMenu = !this.showMenu
-      console.log(123123123, this.showMenu)
       this.$emit('toggle')
     }
   }

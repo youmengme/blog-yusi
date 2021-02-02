@@ -48,8 +48,9 @@ export default {
     }
   },
   head() {
+    const title = `${this.tagInfo?.name} - 标签`
     return {
-      title: '首页'
+      title
     }
   }
 }
