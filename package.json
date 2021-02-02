@@ -20,12 +20,9 @@
     "lint-fix": "eslint --fix --ext .js,.vue ."
   },
   "dependencies": {
-    "@sentry/browser": "^5.29.2",
-    "@sentry/integrations": "^5.29.2",
     "axios": "^0.20.0",
     "babel-plugin-component": "^1.1.1",
     "element-ui": "^2.13.2",
-    "fs": "^0.0.1-security",
     "highlight.js": "^10.2.1",
     "last": "^1.1.0",
     "less": "^3.12.2",
@@ -44,6 +41,7 @@
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.12.1",
     "@babel/plugin-proposal-optional-chaining": "^7.12.7",
     "@nuxt/types": "~2.14.0",
+    "@nuxtjs/sentry": "^5.0.0",
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/stylelint-module": "^4.0.0",
