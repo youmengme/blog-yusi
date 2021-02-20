@@ -1,19 +1,20 @@
 <template>
   <div class="swiper">
-    <el-carousel
-      :interval="3000"
-      :height="$platform.isMobile ? '110px' : '230px'"
-    >
-      <el-carousel-item
-        v-for="(item, index) in list"
-        :key="index"
-        class="el-carousel-item-custom"
+    <client-only>
+      <swiper
+        auto-update
+        auto-destroy
+        autoplay
+        :options="swiperOptions"
+        :style="{ height: $platform.isMobile ? '110px' : '230px' }"
       >
-        <nuxt-link class="carousel-item" :to="item.url">
-          <img v-lazy="$formatImageUrl(item.cover, '')" alt="" />
-        </nuxt-link>
-      </el-carousel-item>
-    </el-carousel>
+        <swiper-slide v-for="(item, index) in list" :key="index">
+          <nuxt-link class="carousel-item" :to="item.url">
+            <img v-lazy="$formatImageUrl(item.cover, '')" alt="" />
+          </nuxt-link>
+        </swiper-slide>
+      </swiper>
+    </client-only>
   </div>
 </template>
 
@@ -27,7 +28,11 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+      swiperOptions: {
+        autoplay: true
+      }
+    }
   }
 }
 </script>

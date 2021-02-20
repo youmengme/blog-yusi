@@ -45,10 +45,11 @@ export const actions = {
 
   // 最新文章
   async initWidgetNewest({ commit }) {
-    const { code, data } = await getArticleList({
+    const result = await getArticleList({
       size: 1,
       type: 'date'
     })
+    const { code, data } = result
     if (code || !data || !data.length) return
     commit(SET_GLOBAL_DATA, ['newest', data[0] || null])
   },

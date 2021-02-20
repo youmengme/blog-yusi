@@ -1,12 +1,17 @@
 <template>
   <div class="reply" :class="$platform.isMobile ? 'mobile' : 'pc'">
     <div class="main-reply">
-      <img class="reply-avatar" :src="info.avatar" />
+      <img
+        class="reply-avatar"
+        :src="
+          info.avatar || 'https://cdn.youmeng.me/blog/2021-02-20-035302.jpg'
+        "
+      />
       <div class="reply-info" :data-floor="info.id">
         <div class="reply-ext">
-          <div class="reply-nick-name">{{ info.nickName }}</div>
+          <div class="reply-nick-name">{{ info.nickname }}</div>
           <div class="reply-date">
-            {{ info.publishedAt | formatDateToRelativeDate }}
+            {{ info.createdAt | formatDateToRelativeDate }}
           </div>
           <div class="reply-btn"><i class="iconfont icon-reply" /> 回复</div>
         </div>
@@ -37,6 +42,7 @@ export default {
   .main-reply {
     display: flex;
     align-items: flex-start;
+
     .reply-avatar {
       flex-shrink: 0;
       width: 42px;
@@ -44,6 +50,7 @@ export default {
       border-radius: 3px;
       margin-right: 5px;
     }
+
     .reply-info {
       position: relative;
       flex: 1;
@@ -52,16 +59,19 @@ export default {
       justify-content: flex-start;
       background: rgba(0, 150, 136, 0.09);
       padding: 10px;
+      border-radius: 2px;
       box-sizing: border-box;
+
       &:after {
         content: '#' attr(data-floor);
         position: absolute;
         right: 10px;
         top: 5px;
-        font-size: 14px;
+        font-size: 10px;
         font-weight: 500;
-        color: #999;
+        color: #ccc;
       }
+
       &:hover {
         .reply-btn {
           display: flex !important;

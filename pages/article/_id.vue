@@ -13,10 +13,9 @@
         <div class="share"><i class="fa fa-share-alt" /> 分享</div>
       </div>
     </div>
-
     <Tags :list="articleInfo.tags" />
     <Relates :list="relates" />
-    <Comments />
+    <Comments :article-id="articleId" />
   </div>
 </template>
 
@@ -49,13 +48,15 @@ export default {
     if (!articleInfo) return redirect('/article/error')
     return {
       articleInfo,
-      relates: relateArticles
+      relates: relateArticles,
+      articleId: params.id
     }
   },
   data() {
     return {
       articleInfo: {},
-      relates: []
+      relates: [],
+      articleId: null
     }
   },
   head() {

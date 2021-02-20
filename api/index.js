@@ -98,3 +98,23 @@ export const getCategoryDetail = (id, params = {}) => {
     params
   })
 }
+
+/**********************************
+ * Comment
+ * ************************************/
+
+// 根据文章ID获取评论列表
+export const getCommentsByArticleId = (id, params = {}) => {
+  return request({
+    url: `/comments/article/${id}`,
+    params
+  })
+}
+// 创建一条评论
+export const createCommentItem = (id, data = {}) => {
+  return request({
+    url: `/comments/${id}`,
+    data,
+    method: 'POST'
+  })
+}

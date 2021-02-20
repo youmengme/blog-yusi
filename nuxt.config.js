@@ -45,10 +45,6 @@ export default {
    ** Global CSS
    */
   css: [
-    'element-ui/lib/theme-chalk/base.css',
-    'element-ui/lib/theme-chalk/carousel.css',
-    'element-ui/lib/theme-chalk/carousel-item.css',
-    'element-ui/lib/theme-chalk/display.css',
     {
       src: '~assets/css/index.less',
       lang: 'less'
@@ -59,11 +55,18 @@ export default {
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
-    '~/plugins/element-ui',
     '~/plugins/prototype',
     {
+      src: '@/plugins/swiper',
+      mode: 'client'
+    },
+    {
+      src: '@/plugins/toast',
+      mode: 'client'
+    },
+    {
       src: '~plugins/lazyload.js',
-      ssr: false
+      mode: 'client'
     }
   ],
   /*
@@ -112,15 +115,7 @@ export default {
    */
   babel: {
     presets: [['es2015', { modules: false }]],
-    plugins: [
-      [
-        'component',
-        {
-          libraryName: 'element-ui',
-          styleLibraryName: 'theme-chalk'
-        }
-      ]
-    ]
+    plugins: []
   },
   /*
    ** Build configuration
@@ -130,7 +125,6 @@ export default {
     maxChunkSize: 360000,
     extractCSS: process.env.NODE_NEV === 'production',
     publicPath: publicCdnUrl,
-    transpile: [/^element-ui/],
     styleResources: {
       less: './assets/css/mixins.less'
     },

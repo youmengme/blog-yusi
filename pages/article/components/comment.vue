@@ -16,61 +16,118 @@
         <div class="user-info">
           <label class="label">
             <span>昵称:</span>
-            <input type="text" class="nick-name" placeholder="请输入你的昵称" />
+            <input
+              type="text"
+              class="nick-name"
+              v-model="nickname"
+              placeholder="请输入你的昵称"
+            />
           </label>
           <label class="label">
             <span>网址:</span>
-            <input type="text" class="url" placeholder="请输入你的博客网址" />
+            <input
+              type="text"
+              class="url"
+              v-model="url"
+              placeholder="请输入你的博客网址"
+            />
+          </label>
+          <label class="label">
+            <span>邮箱:</span>
+            <input
+              type="text"
+              class="url"
+              v-model="email"
+              placeholder="请输入你的邮箱"
+            />
           </label>
         </div>
-        <textarea class="comment-data" placeholder="嘿。让我知道你来过好吗？" />
+        <textarea
+          v-model.lazy="content"
+          class="comment-data"
+          placeholder="嗨，让我知道你来过好吗？"
+        />
       </div>
     </div>
     <div class="comment-actions">
-      <button class="preview">预览</button> <button class="submit">提交</button>
+      <button class="preview">预览</button>
+      <button class="submit" @click.stop="handleSubmitComment">提交</button>
     </div>
-    <div class="replies">
-      <Reply :info="item" v-for="(item, index) in list" :key="index" />
+    <div class="replies" v-if="replies">
+      <Reply :info="item" v-for="(item, index) in replies" :key="index" />
+    </div>
+    <div class="pagination">
+      <Pagination
+        :total="count + 100"
+        :size="10"
+        :active="pageIndex"
+        @change="handleChangePageIndex"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import { createCommentItem, getCommentsByArticleId } from '@/api'
+import Pagination from './pagination'
 import Reply from './reply'
-
 export default {
   name: 'Comments',
-  props: {},
+  props: {
+    articleId: {
+      type: String || Number,
+      default: ''
+    }
+  },
   components: {
-    Reply
+    Reply,
+    Pagination
   },
   data() {
     return {
-      name: '',
+      nickname: '',
+      url: '',
       email: '',
-      text: '',
-      count: 100,
-      list: [
-        {
-          id: 1,
-          articleId: 1,
-          avatar: 'https://secure.gravatar.com/avatar/?s=100&d=mm',
-          content: '这博客主题真好看，爱了爱了。',
-          publishedAt: '2020/10/22 13:14',
-          nickName: '心里全是小九九',
-          replies: [
-            {
-              id: 2,
-              articleId: 1,
-              replyId: 1,
-              avatar: 'https://secure.gravatar.com/avatar/?s=100&d=mm',
-              content: '讲真，爱了爱了',
-              publishedAt: '2020/10/22 15:14',
-              nickName: '一天到晚叭叭叭'
-            }
-          ]
-        }
-      ]
+      content: '',
+      pageIndex: 1,
+      replyInfo: null,
+      count: 0,
+      replies: []
+    }
+  },
+  created() {
+    if (this.articleId) {
+      this.getCommentList()
+    }
+  },
+  methods: {
+    async handleSubmitComment() {
+      const { articleId, nickname, url, email, content } = this
+      if (!articleId) return this.$toast.error('文章id不存在')
+      if (!nickname) return this.$toast.error('name不存在')
+      if (!url) return this.$toast.error('url不存在')
+      if (!email) return this.$toast.error('email不存在')
+      if (!content) return this.$toast.error('content不存在')
+
+      const body = { nickname, url, email, content }
+      const { code, data } = await createCommentItem(this.articleId, body)
+      if (code || !data) return this.$toast.error('提交失败')
+      this.$toast.success('提交成功')
+      if (this.pageIndex === 0) this.getCommentList()
+    },
+    handleChangePageIndex(active) {
+      this.pageIndex = active
+      this.getCommentList()
+    },
+    async getCommentList() {
+      const { code, data } = await getCommentsByArticleId(this.articleId, {
+        page: this.pageIndex - 1,
+        size: 10
+      })
+      if (code || !data) return
+      const { list, count } = data
+      this.replies = list
+      this.count = count
     }
   }
 }
@@ -208,6 +265,10 @@ export default {
 
   .replies {
     padding: 15px 0;
+
+    & /deep/ .reply {
+      margin-top: 10px;
+    }
   }
 }
 </style>

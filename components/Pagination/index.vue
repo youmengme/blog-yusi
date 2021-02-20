@@ -125,11 +125,7 @@ export default {
       }
     }
     > .active {
-      > a {
-        background-color: #00a67c;
-        color: @white;
-        cursor: default;
-      }
+      > a,
       > span {
         background-color: #00a67c;
         color: @white;
@@ -146,11 +142,8 @@ export default {
         color: @color999;
         background-color: @colortransparent;
         cursor: default;
-        &:hover {
-          color: @color999;
-          background-color: @colortransparent;
-          cursor: default;
-        }
+
+        &:hover,
         &:focus {
           color: @color999;
           background-color: @colortransparent;

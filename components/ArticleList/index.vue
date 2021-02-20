@@ -11,7 +11,7 @@
 
 <script>
 import ArticleItem from '../Article/index'
-import Pagination from './pagination'
+import Pagination from '../Pagination'
 
 export default {
   components: {
