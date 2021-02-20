@@ -58,7 +58,7 @@
     </div>
     <div class="pagination">
       <Pagination
-        :total="count + 100"
+        :total="count"
         :size="10"
         :active="pageIndex"
         @change="handleChangePageIndex"
@@ -75,8 +75,8 @@ export default {
   name: 'Comments',
   props: {
     articleId: {
-      type: String || Number,
-      default: ''
+      type: Number,
+      default: 0
     }
   },
   components: {
@@ -113,7 +113,8 @@ export default {
       const { code, data } = await createCommentItem(this.articleId, body)
       if (code || !data) return this.$toast.error('提交失败')
       this.$toast.success('提交成功')
-      if (this.pageIndex === 0) this.getCommentList()
+      this.content = ''
+      if (this.pageIndex === 1) this.getCommentList()
     },
     handleChangePageIndex(active) {
       this.pageIndex = active

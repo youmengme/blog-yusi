@@ -9470,6 +9470,11 @@ ua-parser-js@^0.7.23:
   resolved "https://registry.npm.taobao.org/ua-parser-js/download/ua-parser-js-0.7.23.tgz?cache=0&sync_timestamp=1607578246362&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fua-parser-js%2Fdownload%2Fua-parser-js-0.7.23.tgz#704d67f951e13195fbcd3d78818577f5bc1d547b"
   integrity sha1-cE1n+VHhMZX7zT14gYV39bwdVHs=
 
+ufo@^0.6.6:
+  version "0.6.6"
+  resolved "https://registry.npm.taobao.org/ufo/download/ufo-0.6.6.tgz?cache=0&sync_timestamp=1613390104268&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fufo%2Fdownload%2Fufo-0.6.6.tgz#6bc4b4de19ff9a9cb68134719190196b0cc7353b"
+  integrity sha1-a8S03hn/mpy2gTRxkZAZawzHNTs=
+
 uglify-js@^3.5.1:
   version "3.10.2"
   resolved "https://registry.npm.taobao.org/uglify-js/download/uglify-js-3.10.2.tgz?cache=0&sync_timestamp=1598210460949&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fuglify-js%2Fdownload%2Fuglify-js-3.10.2.tgz#8cfa1209fd04199cc8a7f9930ddedb30b0f1912d"
