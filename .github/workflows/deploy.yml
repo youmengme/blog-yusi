@@ -21,7 +21,7 @@ jobs:
           uuid: ${{ secrets.FEISHU_UUID }}
           text: '开始部署....'
 
-      - uses: egordm/gha-yarn-node-cache@v1
+      # - uses: egordm/gha-yarn-node-cache@v1
       - name: Install and Build
         run: |
           npm install
@@ -30,14 +30,14 @@ jobs:
         run: |
           npm run build
           rm -rf ./node_modules
-         
+
       - name: OSS Upload Tool
-        uses: manyuanrong/setup-ossutil@v2.0  
+        uses: manyuanrong/setup-ossutil@v2.0
         with:
           endpoint: "oss-cn-huhehaote.aliyuncs.com"
           access-key-id: ${{ secrets.OSS_ID }}
           access-key-secret: ${{ secrets.OSS_SECRET }}
-    
+
       - name: Upload
         run: |
           ossutil cp -rf ${{ secrets.OSS_ASSETS_PATH }} oss://${{ secrets.OSS_BUCKET }}${{ secrets.OSS_TARGET_PATH }}
@@ -64,7 +64,7 @@ jobs:
           script: |
             cd /www/wwwroot/www.youmeng.me/client
             yarn
-            npm run deploy 
+            npm run deploy
 
       - name: Feishu Bot
         uses: wangsijie/feishu-bot@v1
