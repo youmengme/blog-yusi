@@ -21,7 +21,7 @@ jobs:
           uuid: ${{ secrets.FEISHU_UUID }}
           text: '开始部署....'
 
-      # - uses: egordm/gha-yarn-node-cache@v1
+      - uses: egordm/gha-yarn-node-cache@v1
       - name: Install and Build
         run: |
           npm install

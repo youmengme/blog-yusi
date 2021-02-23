@@ -115,7 +115,15 @@ export default {
    */
   babel: {
     presets: [['es2015', { modules: false }]],
-    plugins: []
+    plugins: [
+      [
+        'component',
+        {
+          libraryName: 'element-ui',
+          styleLibraryName: 'theme-chalk'
+        }
+      ]
+    ]
   },
   /*
    ** Build configuration
@@ -125,6 +133,7 @@ export default {
     maxChunkSize: 360000,
     extractCSS: process.env.NODE_NEV === 'production',
     publicPath: publicCdnUrl,
+    transpile: [/^element-ui/],
     styleResources: {
       less: './assets/css/mixins.less'
     },
