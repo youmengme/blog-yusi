@@ -7,7 +7,7 @@ export default {
    */
   target: 'server',
   loading: {
-    color: '#3B8070'
+    color: '#3B8070',
   },
   /*
    ** Headers of the page
@@ -16,7 +16,7 @@ export default {
   head: {
     htmlAttrs: {
       lang: 'zh-CN',
-      style: 'font-size:37.5px'
+      style: 'font-size:37.5px',
     },
     titleTemplate: '%s - Youmeng.me',
     title: process.env.npm_package_name || '',
@@ -24,22 +24,22 @@ export default {
       { charset: 'utf-8' },
       {
         name: 'viewport',
-        content: 'width=device-width, initial-scale=1, user-scalable=no'
+        content: 'width=device-width, initial-scale=1, user-scalable=no',
       },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: process.env.npm_package_description || '',
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/png', href: `${publicCdnUrl}/favicon.png` },
       {
         rel: 'stylesheet',
         type: 'text/css',
-        href: '//at.alicdn.com/t/font_647946_jcbvon53akg.css'
-      }
-    ]
+        href: '//at.alicdn.com/t/font_647946_jcbvon53akg.css',
+      },
+    ],
   },
   /*
    ** Global CSS
@@ -47,8 +47,8 @@ export default {
   css: [
     {
       src: '~assets/css/index.less',
-      lang: 'less'
-    }
+      lang: 'less',
+    },
   ],
   /*
    ** Plugins to load before mounting the App
@@ -58,16 +58,16 @@ export default {
     '~/plugins/prototype',
     {
       src: '@/plugins/swiper',
-      mode: 'client'
+      mode: 'client',
     },
     {
       src: '@/plugins/toast',
-      mode: 'client'
+      mode: 'client',
     },
     {
       src: '~plugins/lazyload.js',
-      mode: 'client'
-    }
+      mode: 'client',
+    },
   ],
   /*
    ** Auto import components
@@ -79,21 +79,14 @@ export default {
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
   ],
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/sentry'],
-  sentry: {
-    dsn: 'https://959fc2fc05fd4ea98e84a36dadf8a633@sentry.youmeng.me/9', // Enter your project's DSN here
-    config: {
-      lazy: true
-    } // Additional config
-  },
-
+  modules: [],
   env: {
-    NODE_NEV: process.env.NODE_NEV
+    NODE_NEV: process.env.NODE_NEV,
   },
 
   /**
@@ -106,9 +99,9 @@ export default {
       routes.push({
         name: 'index',
         path: '/',
-        component: resolve(__dirname, 'pages/index/index.vue')
+        component: resolve(__dirname, 'pages/index/index.vue'),
       })
-    }
+    },
   },
   /**
    * babel
@@ -120,10 +113,10 @@ export default {
         'component',
         {
           libraryName: 'element-ui',
-          styleLibraryName: 'theme-chalk'
-        }
-      ]
-    ]
+          styleLibraryName: 'theme-chalk',
+        },
+      ],
+    ],
   },
   /*
    ** Build configuration
@@ -135,20 +128,20 @@ export default {
     publicPath: publicCdnUrl,
     transpile: [/^element-ui/],
     styleResources: {
-      less: './assets/css/mixins.less'
+      less: './assets/css/mixins.less',
     },
     postcss: {
       plugins: {
         'postcss-px2rem': {
-          remUnit: 37.5
-        }
-      }
+          remUnit: 37.5,
+        },
+      },
     },
     babel: {
       plugins: [
         '@babel/plugin-proposal-optional-chaining',
-        '@babel/plugin-proposal-nullish-coalescing-operator'
-      ]
-    }
-  }
+        '@babel/plugin-proposal-nullish-coalescing-operator',
+      ],
+    },
+  },
 }
