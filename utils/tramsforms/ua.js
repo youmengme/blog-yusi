@@ -15,6 +15,7 @@ export const uaParser = userAgent => {
     isWechat: isTargetDevice(['Wechat']),
     isIos: parseResult.os.name === 'iOS',
     isAndroid: parseResult.os.name === 'Android',
-    isMobile: parseResult.device.type === 'mobile'
+    isMobile: parseResult.device.type === 'mobile',
+    isPc: parseResult.device.type !== 'mobile'
   }
 }

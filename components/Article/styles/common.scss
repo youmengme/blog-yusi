@@ -1,13 +1,14 @@
 @import '@/assets/css/utils.scss';
-
 .article-item {
   width: 100%;
   background: var(--white);
   margin-bottom: 10px;
   padding: 20px 15px;
+
   &:last-child {
     margin-bottom: 0;
   }
+
   &:hover {
     .cover {
       transform: scale(1.2);
@@ -48,9 +49,8 @@
 
   .article-detail {
     display: flex;
-    > .article-other {
-      display: none;
-    }
+    justify-content: space-between;
+
     .article-cover {
       display: flex;
       flex-shrink: 0;
@@ -59,12 +59,7 @@
       overflow: hidden;
       margin-right: 15px;
       border-radius: 4px;
-
-      .cover {
-        width: 200px;
-        height: 125px;
-        transition: all 0.4s ease-in-out;
-      }
+      transition: all 0.4s ease-in-out;
     }
 
     .article-content {
@@ -96,6 +91,7 @@
       margin-right: 20px;
       color: #999;
       line-height: 1;
+
       &:last-child {
         margin-right: 0;
       }

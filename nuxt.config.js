@@ -130,7 +130,7 @@ export default {
     publicPath: publicCdnUrl,
     transpile: [/^element-ui/],
     styleResources: {
-      less: './assets/css/mixins.scss'
+      less: './assets/css/colors.scss'
     },
     postcss: {
       plugins: {

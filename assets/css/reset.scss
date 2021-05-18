@@ -10,7 +10,8 @@
 
 a {
   color: var(--greenDrak);
-  transition: color .2s ease-in-out;
+  transition: color .15s ease-in;
+
   &:hover {
     color: var(--red);
   }
@@ -22,27 +23,34 @@ html, body {
 }
 
 body {
-  font-family: Microsoft Yahei, Helvetica Neue, Helvetica, Arial, sans-serif;
-  color: #555;
-  background-color: #eee;
+  font-family: SpecialSymbol, DINRegular, -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Hiragino Sans GB", "Segoe UI", "Microsoft YaHei", '微软雅黑', sans-serif;
+  font-size: 14px;
   overflow-x: hidden;
+  line-height: 1.4;
+  font-display:swap;
+  color: #555;
+  background-color: var(--greyLight);
+  -webkit-font-smoothing: antialiased;
 }
 
 /* 设置滚动条的样式 */
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 /* 滚动槽 */
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
   border-radius: 10px;
 }
+
 /* 滚动条滑块 */
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background: var(--greenLight);
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
+
 ::-webkit-scrollbar-thumb:window-inactive {
   background: rgba(255,0,0,0.4);
 }

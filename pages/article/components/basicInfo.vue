@@ -41,13 +41,6 @@ export default {
       type: Object,
       default: null
     }
-  },
-  components: {},
-  data() {
-    return {}
-  },
-  mounted() {
-    console.log('isMobile', this.$platform.isMobile)
   }
 }
 </script>

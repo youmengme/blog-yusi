@@ -17,7 +17,6 @@ const service = axios.create({
 service.interceptors.request.use(
   config => config,
   error => {
-    console.error(error)
     return Promise.reject(error)
   }
 )
@@ -25,7 +24,6 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => response.data,
   error => {
-    console.error(error)
     return Promise.resolve(error.response)
   }
 )
