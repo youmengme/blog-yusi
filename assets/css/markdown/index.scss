@@ -1,10 +1,6 @@
+@import './theme';
 
 .markdown {
-  * {
-    //margin: 0;
-    //padding: 0;
-    //box-sizing: border-box;
-  }
   &.fullscreen {
     position: fixed;
     z-index: 999;
@@ -33,10 +29,12 @@
     cursor: pointer;
     box-shadow: 0 2px 3px #ddd;
     padding-left: 4px;
-    border-bottom: 1px solid @border;
-    >li {
+    border-bottom: 1px solid $border;
+
+    > li {
       position: relative;
       cursor: default;
+
       &:after {
         display: block;
         content: attr(name);
@@ -50,7 +48,7 @@
         font-size: 12px;
         line-height: 20px;
         padding: 0 6px;
-        border: 1px solid @border;
+        border: 1px solid $border;
         transition: all 0.3s;
         transform: scale(0);
         opacity: 0;
@@ -79,8 +77,8 @@
       display: inline-block;
       line-height: 32px;
       &:hover {
-        color: @primary;
-        background: @background;
+        color: $primary;
+        background: $background;
         border-radius: 3px;
       }
     }
@@ -108,8 +106,8 @@
         display: inline-block;
         line-height: 32px;
         &:hover {
-          color: @primary;
-          background: @background;
+          color: $primary;
+          background: $background;
           border-radius: 3px;
         }
       }
@@ -126,24 +124,28 @@
         transition: all 0.3s;
         transform-origin: top left;
         transform: scaleY(0);
-        border: 1px solid @border;
+        border: 1px solid $border;
         border-top: 0;
+
         &.active {
           opacity: 1;
           transform: scaleY(1);
         }
+
         li {
           transition: all 0.3s;
           padding: 0 15px;
           width: 82px;
           line-height: 30px;
-          border-bottom: 1px dashed @border;
+          border-bottom: 1px dashed $border;
+
           &:last-child {
             border-bottom: none;
           }
+
           &:hover {
-            background: @background;
-            color: @primary;
+            background: $background;
+            color: $primary;
           }
         }
       }
@@ -174,14 +176,15 @@
         background: #272727;
         min-height: 100%;
         width: 36px;
-        line-height: @line-height;
+        line-height: $line-height;
         padding: 12px 0;
+
         li {
           background: #272727;
           color: #ccc;
           font-size: 14px;
           text-align: center;
-          font-family: Consolas;
+          font-family: Consolas, serif;
         }
       }
       textarea {
@@ -190,17 +193,18 @@
         outline: none;
         border: 0;
         background: #2d2d2d;
-        line-height: @line-height;
+        line-height: $line-height;
         caret-color: #ccc;
         color: #669acc;
         font-size: 14px;
-        font-family: Consolas;
+        font-family: Consolas, serif;
         resize: none;
         padding: 12px 8px;
         overflow: hidden;
+
         &::selection {
           background: #999;
-          color: @primary;
+          color: $primary;
         }
       }
     }

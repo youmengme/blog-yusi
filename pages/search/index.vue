@@ -49,7 +49,7 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
+<style lang="scss" scoped>
 .page-search {
   .search-container {
     position: relative;

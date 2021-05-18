@@ -37,7 +37,7 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
 .swiper {
   padding: 12.5px;
   background: #fff;

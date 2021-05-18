@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
 .widget.tags {
   .title {
     color: var(--greenDrak);

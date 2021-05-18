@@ -28,7 +28,7 @@ export default {
   }
 }
 </script>
-<style lang="less">
+<style lang="scss">
 .widgets {
   .widget {
     padding: 0 20px;

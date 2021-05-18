@@ -3,6 +3,7 @@
   /* var属性兼容性 --> https://www.caniuse.com/#feat=css-variables */
 
   /* 标准色 */
+  --transparent: transparent;
   --red: #d9534f;
   --orange: #f60;
   --yellow: #fbbd08;
@@ -29,6 +30,7 @@
   /* 浅色 */
   --redLight: #fadbd9;
   --orangeLight: #fde6d2;
+  --blackLight: #666;
   --yellowLight: #fef2ce;
   --oliveLight: #e8f4d9;
   --greenLight: #d7f0db;
@@ -77,15 +79,14 @@
   --notice-bar-font-size: 12px;
 }
 
-@white: #fff;
-@color333: #333;
-@color666: #666;
-@color999: #999;
-@coloreee: #eee;
-@colortransparent: transparent;
-
-@background_4a4a4a: #4a4a4a;
-@cyan: #16a085;
-@sub-menu-hover-bg: #445552;
-@menu-hover: #576663;
+$white: #fff;
+$color333: #333;
+$color666: #666;
+$color999: #999;
+$coloreee: #eee;
+$colortransparent: transparent;
+$background_4a4a4a: #4a4a4a;
+$cyan: #16a085;
+$sub-menu-hover-bg: #445552;
+$menu-hover: #576663;
 

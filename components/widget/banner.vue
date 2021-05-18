@@ -26,8 +26,8 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
-@import '../../assets/css/func';
+<style lang="scss" scoped>
+@import '@/assets/css/utils.scss';
 
 .widget.banner {
   width: auto;
@@ -56,7 +56,7 @@ export default {
     .article-desc {
       color: var(--grey);
       margin-top: 5px;
-      .global-lines(4);
+      @include line(4);
     }
   }
 }

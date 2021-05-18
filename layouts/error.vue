@@ -25,10 +25,7 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
-.page-wrap {
-}
-
+<style lang="scss" scoped>
 .text-magic {
   position: absolute;
   top: 50%;

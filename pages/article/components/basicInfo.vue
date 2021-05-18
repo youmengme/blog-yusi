@@ -52,7 +52,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .article-basic {
   width: 100%;
   background: #fff;

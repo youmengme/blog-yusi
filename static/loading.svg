@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900px" height="383px" viewBox="0 0 900 383" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.953532628">
+        <g id="编组">
+            <rect id="矩形" fill="#F1F1F1" x="0" y="0" width="900" height="383"></rect>
+            <text id="加载中…" fill="#A1A1A1" fill-rule="nonzero" font-family="PingFangTC-Thin, PingFang TC" font-size="64" font-weight="300">
+                <tspan x="322" y="215">加载中…</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

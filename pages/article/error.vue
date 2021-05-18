@@ -20,7 +20,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .error {
   text-align: center;
   padding-top: 100px;

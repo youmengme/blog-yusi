@@ -20,8 +20,8 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
-@import '../assets/css/func';
+<style lang="scss" scoped>
+@import '@/assets/css/utils.scss';
 .affiche {
   width: auto;
   height: 40px;
@@ -32,7 +32,7 @@ export default {
   box-sizing: border-box;
   color: var(--grayDark);
   margin-bottom: 10px;
-  .global-lines(1);
+  @include line(1);
 
   .icon {
     color: var(--success);

@@ -4,7 +4,7 @@ import { deviceType } from '@/utils/deviceType'
 const SET_GLOBAL_DATA = 'SET_GLOBAL_DATA'
 
 export const state = () => ({
-  announcement: '你总是这样轻言放弃的话，无论多久你都只会原地踏步。',
+  announcement: '最近太忙了,没时间更新博客的功能... 忙过这一阵好好整整这个项目',
   recommendArticles: [],
   recommendTags: [],
   newest: null,

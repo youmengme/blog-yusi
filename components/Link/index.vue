@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'index',
+  name: 'Index',
   props: {},
   components: {},
   data() {
@@ -13,7 +13,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .index {
 }
 </style>

@@ -71,10 +71,10 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .pagination {
   padding: 20px 0 15px 0;
-  background-color: @white;
+  background-color: var(--white);
   text-align: center;
 
   ul {
@@ -91,19 +91,19 @@ export default {
         padding: 4px 12px 3px;
         line-height: 20px;
         text-decoration: none;
-        background-color: @coloreee;
-        color: @color666;
+        background-color: var(--greyLight);
+        color: var(--blackLight);
         cursor: pointer;
 
         &:hover {
           background-color: #6fc299;
-          color: @white;
+          color: var(--white);
         }
         &.dot {
-          background-color: @colortransparent;
+          background-color: var(--transparent);
           cursor: default;
           &:hover {
-            color: @color666;
+            color: var(--blackLight);
           }
         }
       }
@@ -113,28 +113,28 @@ export default {
       > a,
       > span {
         background-color: #00a67c;
-        color: @white;
+        color: var(--white);
         cursor: default;
       }
     }
 
     > .disabled {
       > span {
-        color: @color999;
-        background-color: @colortransparent;
+        color: var(--gray);
+        background-color: var(--transparent);
         cursor: default;
       }
 
       > a,
       > span {
-        color: @color999;
-        background-color: @colortransparent;
+        color: var(--gray);
+        background-color: var(--transparent);
         cursor: default;
 
         &:hover,
         &:focus {
-          color: @color999;
-          background-color: @colortransparent;
+          color: var(--gray);
+          background-color: var(--transparent);
           cursor: default;
         }
       }

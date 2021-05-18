@@ -40,7 +40,7 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .mobile-main {
   transition: all 0.2s ease-in-out;
   font-size: 14px;

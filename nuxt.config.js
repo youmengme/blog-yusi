@@ -1,5 +1,6 @@
-const publicCdnUrl = '//cdn.youmeng.me/static'
+import { projectConfig } from './project.config'
 
+const publicCdnUrl = '//cdn.youmeng.me/static'
 export default {
   /*
    ** Nuxt target
@@ -18,8 +19,8 @@ export default {
       lang: 'zh-CN',
       style: 'font-size:37.5px'
     },
-    titleTemplate: '%s - Youmeng.me',
-    title: process.env.npm_package_name || '',
+    titleTemplate: `%s - ${projectConfig.blogName || ''}`,
+    title: projectConfig.blogName || '',
     meta: [
       { charset: 'utf-8' },
       {
@@ -29,7 +30,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content: projectConfig.description || ''
       }
     ],
     link: [
@@ -46,8 +47,8 @@ export default {
    */
   css: [
     {
-      src: '~assets/css/index.less',
-      lang: 'less'
+      src: '~assets/css/index.scss',
+      lang: 'scss'
     }
   ],
   /*
@@ -55,7 +56,7 @@ export default {
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
-    '~/plugins/prototype',
+    '~/plugins/extends',
     {
       src: '@/plugins/swiper',
       mode: 'client'
@@ -129,7 +130,7 @@ export default {
     publicPath: publicCdnUrl,
     transpile: [/^element-ui/],
     styleResources: {
-      less: './assets/css/mixins.less'
+      less: './assets/css/mixins.scss'
     },
     postcss: {
       plugins: {

@@ -1,8 +1,6 @@
 @charset "utf-8";
-/*
-*Author zhaoxuhui
-*/
-// 默认风格
+@import './theme';
+
 .md-light {
   pre {
     font-size: 14px !important;
@@ -18,10 +16,10 @@
     overflow-x: scroll !important;
     margin: 20px 0 !important;
     code {
-      line-height: @line-height !important;
+      line-height: $line-height !important;
       font-family: Consolas !important;
       font-size: 13px;
-      line-height: @line-height !important;
+      line-height: $line-height !important;
       color: #444;
     }
   }
@@ -85,7 +83,7 @@
   pre {
     padding: 0;
     margin: 0;
-    background: @background !important;
+    background: $background !important;
   }
   code {
     display: inline-block;

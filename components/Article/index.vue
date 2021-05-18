@@ -78,11 +78,11 @@ export default {
 }
 </script>
 
-<style lang="less">
-@import '../../assets/css/func';
-@import 'styles/common';
-@import 'styles/pc';
-@import 'styles/mobile';
+<style lang="scss">
+@import '@/assets/css/utils.scss';
+@import 'styles/common.scss';
+@import 'styles/pc.scss';
+@import 'styles/mobile.scss';
 
 .mobile {
   padding-bottom: 0;

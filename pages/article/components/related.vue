@@ -45,8 +45,8 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-@import '../../../assets/css/func';
+<style lang="scss" scoped>
+@import '@/assets/css/utils.scss';
 
 .related {
   margin-top: 10px;
@@ -86,7 +86,7 @@ export default {
 
       .title {
         max-width: 100%;
-        .global-lines(2);
+        @include line(2);
       }
     }
   }

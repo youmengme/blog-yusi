@@ -1,17 +1,6 @@
-.article-item {
-  width: 100%;
-  background: var(--white);
-  margin-bottom: 10px;
-  padding: 20px 15px;
-  &:last-child {
-    margin-bottom: 0;
-  }
-  &:hover {
-    .cover {
-      transform: scale(1.2);
-    }
-  }
+@import '@/assets/css/utils.scss';
 
+.article-item.pc {
   .article-header {
     display: flex;
     align-items: center;
@@ -49,21 +38,6 @@
     > .article-other {
       display: none;
     }
-    .article-cover {
-      display: flex;
-      flex-shrink: 0;
-      width: 200px;
-      height: 125px;
-      overflow: hidden;
-      margin-right: 15px;
-      border-radius: 4px;
-
-      .cover {
-        width: 200px;
-        height: 125px;
-        transition: all 0.4s ease-in-out;
-      }
-    }
 
     .article-content {
       flex: 1;
@@ -75,36 +49,36 @@
       cursor: auto;
 
       .article-desc {
-        .global-lines(4);
-      }
-    }
-  }
-
-  .article-ext {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    width: auto;
-    height: 24px;
-
-    > div {
-      display: flex;
-      align-items: center;
-      font-size: 13px;
-      margin-right: 20px;
-      color: #999;
-      line-height: 1;
-      &:last-child {
-        margin-right: 0;
+        @include line(4);
       }
 
-      &.like {
-        color: #f78585;
-        cursor: pointer;
-      }
+      .article-ext {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        width: auto;
+        height: 24px;
 
-      i {
-        margin-right: 5px;
+        > span {
+          display: flex;
+          align-items: center;
+          font-size: 13px;
+          margin-right: 20px;
+          color: #999;
+          line-height: 1;
+          &:last-child {
+            margin-right: 0;
+          }
+
+          &.like {
+            color: #f78585;
+            cursor: pointer;
+          }
+
+          i {
+            margin-right: 5px;
+          }
+        }
       }
     }
   }

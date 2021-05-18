@@ -42,8 +42,8 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
-@import '../../assets/css/func';
+<style scoped lang="scss">
+@import '@/assets/css/utils.scss';
 
 .widget.posts {
   .title {
@@ -83,7 +83,7 @@ export default {
         justify-content: space-between;
 
         .article-title {
-          .global-lines(2);
+          @include line(2);
         }
 
         .article-date {

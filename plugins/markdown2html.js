@@ -1,5 +1,5 @@
 import hljs from 'highlight.js'
-import marked from 'marked'
+import marked from '@/libs/marked'
 
 if (process.client) hljs.initHighlightingOnLoad()
 const renderer = new marked.Renderer()

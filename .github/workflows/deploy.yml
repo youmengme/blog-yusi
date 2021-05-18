@@ -64,7 +64,7 @@ jobs:
           script: |
             cd /www/wwwroot/www.youmeng.me/client
             yarn
-            npm run deploy
+            yarn deploy
 
       - name: Feishu Bot
         uses: wangsijie/feishu-bot@v1

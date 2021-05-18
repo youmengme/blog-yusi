@@ -1,0 +1,72 @@
+@import "variable";
+
+@mixin s-large {
+  @media (min-width: $mobile-max-width + 1) {
+    @content;
+  }
+}
+
+@mixin s-small {
+  @media (max-width: $mobile-max-width) {
+    @content;
+  }
+}
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@mixin fs-rem($min-width, $max-width) {
+  @if $max-width <=750 {
+    @media screen and (min-width: $min-width * 1px) and (max-width: $max-width * 1px) {
+      font-size: ($max-width / ($design-output / $scale)) * 1px;
+      font-size: (100 / ($design-output / $scale)) * 1vw;
+    }
+  }
+
+  @if $max-width>750 {
+    @media screen and (min-width: $min-width * 1px) {
+      font-size: ($min-width / ($design-output / $scale)) * 1px;
+      font-size: (100 / ($design-output / $scale)) * 1vw;
+    }
+  }
+}
+
+@function PX2REM($px){
+  @return strip-units($px) / $scale * 1rem;
+}
+
+
+
+@function css-function( $function, $values... ) {
+	@return
+		$function
+		+ unquote( '(' )
+		+ $values
+		+ unquote( ')' )
+	;
+}
+
+@function css-min( $values... ) {
+	@return css-function( min, $values );
+}
+
+@function css-max( $values... ) {
+	@return css-function( max, $values );
+}
+
+@function css-clamp( $values... ) {
+	@return css-function( clamp, $values );
+}
+
+@mixin line($lines: 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $lines;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+@function ossImg($relativeImg) {
+  @return 'https://sr.aihuishou.com/c2b/zy-fe/public/enterprise-website'+$relativeImg;
+}

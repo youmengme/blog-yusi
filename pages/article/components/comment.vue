@@ -134,7 +134,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .comments {
   padding: 20px;
   margin-top: 10px;
@@ -267,7 +267,7 @@ export default {
   .replies {
     padding: 15px 0;
 
-    & /deep/ .reply {
+    & >>> .reply {
       margin-top: 10px;
     }
   }

@@ -1,3 +1,4 @@
+@import '@/assets/css/mixins.scss';
 .header {
   .container-inner {
 
@@ -42,7 +43,7 @@
   }
   .navbar {
     height: 50px;
-    background-color: @background_4a4a4a;
+    background-color: $background_4a4a4a;
     opacity: 0.9;
 
     .nav {
@@ -100,7 +101,7 @@
 
         a {
           padding: 14px 20px;
-          color: @white;
+          color: var(--white);
           font-weight: bold;
           transition: all 0.2s ease-in-out;
         }
@@ -124,14 +125,14 @@
               width: auto;
               line-height: 30px;
               padding: 5px 20px 5px;
-              color: @white;
+              color: var(--white);
             }
           }
         }
 
         &:hover {
           a {
-            background-color: @cyan;
+            background-color: var(--cyan);
           }
 
           .sub-menu {
@@ -143,7 +144,7 @@
 
               a {
                 &:hover {
-                  background-color: @sub-menu-hover-bg;
+                  background-color: $sub-menu-hover-bg;
                 }
               }
 

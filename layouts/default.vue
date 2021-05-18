@@ -18,20 +18,16 @@ import CHeader from '@/components/Header/pc'
 import CFooter from '@/components/footer'
 import CWidget from '@/components/widget'
 import Affiche from '@/components/affiche'
-import backTop from '@/components/right'
+import BackTop from '@/components/right'
 
-import { uaParser } from '../utils/tramsforms/ua'
+import { uaParser } from '@/utils/tramsforms/ua'
 export default {
   components: {
     CHeader,
     CFooter,
     CWidget,
     Affiche,
-    backTop
-  },
-  queries: {
-    mobile: '(max-width: 760px)',
-    pc: '(min-width: 761px)'
+    BackTop
   },
   data() {
     return {
@@ -44,9 +40,6 @@ export default {
     }
   },
   methods: {
-    onMediaQueryChange(data) {
-      console.log('onMediaQueryChange', data)
-    },
     translateContentWrap() {
       this.wrapStyle = this.wrapStyle
         ? ''
@@ -55,7 +48,7 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .content-default {
   transition: all 0.2s ease-in-out;
   font-size: 14px;

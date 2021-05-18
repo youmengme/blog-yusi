@@ -101,7 +101,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 @import './styles/common';
 @import './styles/mobile';
 </style>
