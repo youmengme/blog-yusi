@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { markdown2html } from '~/plugins/markdown2html'
+import markdown2html from '~/libs/marked'
 
 export default {
   name: 'Full',

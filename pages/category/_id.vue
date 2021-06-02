@@ -26,9 +26,7 @@ export default {
   },
   async asyncData({ params }) {
     const [articleResult, categoryDetail] = await Promise.all([
-      getCategoryArticle(params.id, {
-        count: true
-      }),
+      getCategoryArticle(params.id),
       getCategoryDetail(params.id)
     ])
     const result = {}
@@ -36,10 +34,10 @@ export default {
       result.categoryInfo = categoryDetail.data
     }
 
-    if (!articleResult.code && articleResult.data) {
-      const { rows = [], count = 0 } = articleResult.data
-      result.list = rows
-      result.count = count
+    if (!articleResult.code) {
+      const { total, data } = articleResult
+      result.list = data
+      result.count = total
     }
 
     return result

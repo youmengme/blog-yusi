@@ -20,12 +20,12 @@
 </template>
 
 <script>
-import Markdown from '@/components/Markdown'
 import BasicInfo from './components/basicInfo'
 import Tags from './components/tag'
 import Relates from './components/related'
 import Comments from './components/comment'
 import { getArticleDetail, getRelateArticles } from './service'
+import Markdown from '~/components/Markdown'
 
 export default {
   name: 'Article',
@@ -40,10 +40,7 @@ export default {
     Markdown
   },
   async asyncData({ params, redirect }) {
-    const relateArticles = await getRelateArticles({
-      type: 'view',
-      size: 4
-    })
+    const relateArticles = await getRelateArticles()
     const articleInfo = await getArticleDetail(params.id)
     if (!articleInfo) return redirect('/article/error')
     return {

@@ -17,17 +17,12 @@
       </h2>
     </header>
     <div class="article-detail">
-      <img
-        class="article-cover"
-        v-lazy="$formatImageUrl(article.cover, 'pc_article_cover')"
-        :alt="article.title"
-      />
+      <img class="article-cover" v-lazy="article.cover" :alt="article.title" />
       <div class="article-content">
         <div class="article-desc">{{ article.desc }}</div>
         <div class="article-ext">
           <div class="date">
-            <i class="fa fa-clock-o" />
-            {{ article.publishedAt | formatDateToRelativeDate }}
+            <i class="fa fa-clock-o" /> {{ article.publishedAt }}
           </div>
           <div class="views">
             <i class="fa fa-eye" /> {{ article.views || 0 }}

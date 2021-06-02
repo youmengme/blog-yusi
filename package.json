@@ -20,6 +20,7 @@
     "lint-fix": "eslint --fix --ext .js,.vue ."
   },
   "dependencies": {
+    "@nuxt/markdown": "^0.0.21",
     "axios": "^0.20.0",
     "babel-plugin-component": "^1.1.1",
     "emojione": "^4.5.0",

@@ -36,7 +36,7 @@ export const actions = {
   // 猜你喜欢
   async initWidgetArticle({ commit }) {
     const { code, data } = await getArticleList({
-      size: 5,
+      pageSize: 5,
       type: 'like'
     })
     if (code || !data || !data.length) return
@@ -46,7 +46,7 @@ export const actions = {
   // 最新文章
   async initWidgetNewest({ commit }) {
     const result = await getArticleList({
-      size: 1,
+      pageSize: 1,
       type: 'date'
     })
     const { code, data } = result
@@ -57,7 +57,7 @@ export const actions = {
   // 标签云
   async initWidgetTag({ commit }) {
     const { code, data } = await getTagList({
-      size: 10
+      pageSize: 10
     })
     if (code || !data || !data.length) return
     commit(SET_GLOBAL_DATA, ['recommendTags', data || []])

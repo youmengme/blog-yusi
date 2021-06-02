@@ -6,9 +6,9 @@
 </template>
 
 <script>
-import { getArticleList, getTagDetail } from '@/api'
 import ArticleList from '../../components/ArticleList'
 import Archive from '../../components/archive'
+import { getTagArticle, getTagDetail } from '~/api'
 
 export default {
   name: 'Tag',
@@ -20,24 +20,19 @@ export default {
     Archive
   },
   async asyncData({ params }) {
-    const [articleResult, categoryDetail] = await Promise.all([
-      getArticleList({
-        categoryId: params.id,
-        count: true
-      }),
+    const [articleResult, tagResult] = await Promise.all([
+      getTagArticle(params.id),
       getTagDetail(params.id)
     ])
+    const { code, data, total } = articleResult
     const result = {}
-    if (!categoryDetail.code && categoryDetail.data) {
-      result.tagInfo = categoryDetail.data
+    if (!code) {
+      result.list = data
+      result.count = total
     }
-
-    if (!articleResult.code && articleResult.data) {
-      const { rows = [], count = 0 } = articleResult.data
-      result.list = rows
-      result.count = count
+    if (!tagResult.code) {
+      result.tagInfo = tagResult.data
     }
-
     return result
   },
   data() {

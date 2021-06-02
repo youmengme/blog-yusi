@@ -31,16 +31,16 @@ export default {
   },
   async asyncData({ params }) {
     const page = parseInt(params.id) - 1
-    const { code, data } = await getArticleList({
-      type: 'new',
-      count: true,
-      page: page > -1 ? page : 0
+    const { code, data, total } = await getArticleList({
+      page,
+      pageSize: 10,
+      type: 'new'
     })
+    console.log(code, data, total)
     if (code || !data) return
-    const { rows = [], count = 0 } = data
     return {
-      list: rows,
-      count,
+      list: data,
+      count: total,
       activeIndex: params.id * 1 || 1
     }
   },

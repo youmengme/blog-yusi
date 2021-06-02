@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const apiUrl =
   process.env.NODE_ENV === 'development'
-    ? 'https://blog.cn1.utools.club'
+    ? 'https://blog1.cn.utools.club'
     : 'https://api-blog.youmeng.me'
 
 const service = axios.create({

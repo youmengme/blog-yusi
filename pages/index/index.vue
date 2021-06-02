@@ -28,14 +28,19 @@ export default {
     const [articles, swipes] = await Promise.all([
       getArticleList({
         type: 'date',
-        count: true
+        pageSize: 10
       }),
       getIndexPageSwiper()
     ])
     const result = {}
-    if (!articles.code && articles?.data?.rows) {
-      result.list = articles.data.rows
-      result.count = articles.data.count
+    if (articles) {
+      const { code, data, count } = articles
+      result.list = []
+      result.count = 0
+      if (!code && data) {
+        result.list = data
+        result.count = count
+      }
     }
     if (!swipes.code && Array.isArray(swipes.data)) {
       result.swipes = swipes.data

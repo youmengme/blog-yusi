@@ -1,6 +1,7 @@
 // https://github.com/HerbertHe/for-editor-herb/blob/master/src/lib/helpers/marked.ts
 import marked from 'marked'
 import katex from 'katex'
+import hljs from 'highlight.js'
 
 const emojione = require('emojione')
 
@@ -168,8 +169,11 @@ const markedRender = (content, highlight, anchor) => {
   return marked(content, { renderer })
 }
 
-export default (content, highlight, anchor) => {
+export default content => {
   if (typeof content !== 'string') return ''
+  const html = markedRender(content, hljs.highlightAuto, true)
 
-  return markedRender(content, highlight, anchor)
+  return {
+    content: html
+  }
 }

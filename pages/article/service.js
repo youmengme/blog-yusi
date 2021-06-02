@@ -8,7 +8,7 @@ export const getArticleDetail = async articleId => {
 export const getRelateArticles = async () => {
   const { code, data } = await getArticleList({
     type: 'view',
-    size: 4
+    pageSize: 4
   })
   if (code || !data) return {}
   return data

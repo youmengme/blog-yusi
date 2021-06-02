@@ -12,5 +12,6 @@ export default context => {
   Vue.prototype.$formatImageUrl = formatImageUrl2Device
   Vue.prototype.$platform = context.store.state.platformInfo
   Vue.filter('formatDateToRelativeDate', formatDateToRelativeDateString)
+  Vue.filter('formatDateToRelativeDate', formatImageUrl2Device)
   Vue.directive('platform', hideOnPlatform(context))
 }
